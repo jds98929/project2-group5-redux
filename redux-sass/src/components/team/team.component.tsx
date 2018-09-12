@@ -8,7 +8,7 @@ import { fetchSchedule, fetchRoster } from '../../actions/team/team.actions';
 interface IProps extends ITeamState {
   fetchSchedule: () => any,
   fetchRoster: () => any,
-  partialRender: () => any
+  partialRender: () => string
 }
 
 export class TeamComponent extends React.Component<IProps, any> {

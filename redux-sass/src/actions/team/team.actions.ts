@@ -4,7 +4,7 @@ export const teamTypes = {
 }
 
 export const fetchSchedule = () => (dispatch: any) => {
-  const getSchedule: any = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  {/*const getSchedule: any = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   getSchedule
     .then((resp: any) => {
       return resp.json();
@@ -27,11 +27,11 @@ export const fetchSchedule = () => (dispatch: any) => {
     })
     .catch((err: any) => {
       console.log(err);
-    })
+    })*/}
   }
 
     export const fetchRoster = () => (dispatch: any) => {
-      const getRoster: any = fetch(`https://pokeapi.co/api/v2/pokemon/`);
+      {/*const getRoster: any = fetch(`https://pokeapi.co/api/v2/pokemon/`);
       getRoster
         .then((resp: any) => {
           return resp.json();
@@ -56,5 +56,5 @@ export const fetchSchedule = () => (dispatch: any) => {
         })
         .catch((err: any) => {
           console.log(err);
-        })
+        })*/}
 }

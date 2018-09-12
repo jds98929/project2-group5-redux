@@ -2,7 +2,7 @@ import { ITeamState } from ".";
 import { teamTypes } from "../actions/team/team.actions";
 
 const initialState: ITeamState = {
-    partialRender: () => {return;},
+    partialRender: () => 'balls',
     teamName: ''
 }
 
