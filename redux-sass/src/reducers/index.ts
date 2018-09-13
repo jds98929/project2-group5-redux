@@ -3,8 +3,10 @@ import { teamReducer } from "./team.reducer";
 
 
 export interface ITeamState {
+  games: any,
+  partialRender: string,
+  players: any,
   teamName: string,
-  partialRender: () => any
 }
 
 
