@@ -44,35 +44,8 @@ export const AppNav: React.StatelessComponent<any> = props => {
                 aria-labelledby="examples-dropdown"
               >
                 <div className="dropdown-item">
-                  <Link to="/movies" className="unset-anchor nav-link active">
-                    Movies
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link to="/clicker" className="unset-anchor nav-link active">
-                    Clicker Game
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link
-                    to="/tic-tac-toe"
-                    className="unset-anchor nav-link active"
-                  >
-                    Tic Tac Toe Game
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link
-                    to="/chuck-norris"
-                    className="unset-anchor nav-link active"
-                  >
-                    Chuck Norris Jokes
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link to="/pokemon" className="unset-anchor nav-link active">
-                    Pokemon
-                  </Link>
+                  <Link to="/team" className="unset-anchor nav-link active">
+                    Teams                </Link>
                 </div>
               </div>
             </li>
