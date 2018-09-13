@@ -10,7 +10,7 @@ export class HomeComponent extends React.Component<any, any> {
                     <img className="logo1 float-left" src={NflLogo1} alt="Logo 1" height="180px" width="140px" />
                     <h1 className="display-4 d-flex justify-content-center">Welcome username!</h1>
                     <p className="lead d-flex justify-content-center">Homepage</p>
-                </div>
+                </div> 
                 <div className="container">
                     <div className="row">
                         <div className="col-8">
