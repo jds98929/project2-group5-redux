@@ -6,6 +6,7 @@ import TeamComponent from './components/team/team.component'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './Store';
+import SignInComponent from './components/sign-in/sign-in.component';
 
 class App extends React.Component {
   public render() {
@@ -17,6 +18,8 @@ class App extends React.Component {
             <div id="main-content-container">
               <Switch>
                 <Route path="/team" component={TeamComponent} />
+                <Route path="/sign-in" component={SignInComponent} />
+                <Route component={SignInComponent} />
               </Switch>
             </div>
           </div>
