@@ -5,8 +5,8 @@ import { teamTypes } from "../actions/team/team.actions";
 const initialState: ITeamState = {
     games: [],
     partialRender: '',
-    players: [],
-    teamName: 'Raiders'
+    roster: [],
+    teamName: ''
 }
 
 export const teamReducer = (state = initialState, action: any) => {
@@ -22,7 +22,7 @@ export const teamReducer = (state = initialState, action: any) => {
       return {
         ...state,
         partialRender: action.payload.partialRender,
-        players: action.payload.players
+        roster: action.payload.roster
       }
   }
 

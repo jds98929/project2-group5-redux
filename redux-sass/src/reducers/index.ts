@@ -13,7 +13,7 @@ export interface ISignInState {
 export interface ITeamState {
   games: any,
   partialRender: string,
-  players: any,
+  roster: any,
   teamName: string,
 }
 

@@ -9,14 +9,12 @@ import { RosterComponent } from '../roster/roster.component';
  
 interface IProps extends ITeamState {
   fetchSchedule: () => any,
-  fetchRoster: () => any,
+  fetchRoster:(alias : any, weekNum : any) => any,
 }
 
 export class TeamComponent extends React.Component<IProps, any> {
-
-
   public render() {
-    const { games, players, teamName, partialRender } = this.props;
+    const { games, roster, teamName, partialRender } = this.props;
     return (
       <div>
         <h3>{teamName}</h3>
@@ -29,7 +27,7 @@ export class TeamComponent extends React.Component<IProps, any> {
         <button className="btn btn-primary"
             onClick={(event: any) => { 
                 event.preventDefault();
-                this.props.fetchRoster();
+                this.props.fetchRoster("IND", 1);
           }}> 
           Roster
         </button>
@@ -37,17 +35,13 @@ export class TeamComponent extends React.Component<IProps, any> {
         <div>
             {partialRender === 'schedule' ? 
             <ScheduleComponent games={games}/> :
-            <RosterComponent players={players}/>
+            <RosterComponent roster={roster}/>
           }
         </div>
       </div>
     );
-
   }
-
 }
-
-
 
 const mapStateToProps = (state: IState) => state.team;
 const mapDispatchToProps = {

@@ -14,7 +14,7 @@ export const fetchSchedule = () => {
     type: teamTypes.VIEW_SCHEDULE
   }
 
-  {/*const getSchedule: any = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  /*{const getSchedule: any = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   getSchedule
     .then((resp: any) => {
       return resp.json();
@@ -37,41 +37,32 @@ export const fetchSchedule = () => {
     })
     .catch((err: any) => {
       console.log(err);
-    })*/}
+    })}*/
   }
 
-export const fetchRoster = () => {
-  return{
-    payload: {
-      partialRender: 'Roster',
-      players:  [{firstName: 'Joe', lastName: 'Montana'}],
-    },
-    type: teamTypes.VIEW_ROSTER
-  }
-  {/*const getRoster: any = fetch(`https://pokeapi.co/api/v2/pokemon/`);
+export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
+  const getRoster: any = fetch(`http://localhost:8080/season/${alias}/${weekNum}/roster`);
   getRoster
     .then((resp: any) => {
       return resp.json();
     })
     .then((respObj: any) => {
-      const players = [];
-      for(const player in respObj.players) {
-        if (player && respObj.players[player]) {
-          players.push(player);
+      const roster = [];
+      console.log(`resp body:  ${respObj[0].name}`)
+      for (const player in respObj) {
+        if (player && respObj) {
+          roster.push(respObj[player]);
         }
       }
+      console.log(roster);
       dispatch({
         payload: {
-          pokemon: {
-            name: respObj.name,
-            sprites
-          }
+            roster
         },
-       type: teamTypes.VIEW_ROSTER,
-
+        type: teamTypes.VIEW_ROSTER,
       });
     })
     .catch((err: any) => {
       console.log(err);
-    })*/}
+    });
 }
