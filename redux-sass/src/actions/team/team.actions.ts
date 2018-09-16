@@ -4,11 +4,11 @@ export const teamTypes = {
 }
 
 export const fetchSchedule = () => {
-  
+
   return {
     payload: {
-      games: [{date: '06/03/2018', score: '21-7', team1: 'Raiders', team2: 'Ravens'},
-              {date: '07/20/2018', score: '18-46', team1: 'Falcons', team2: 'Patriots'}],
+      games: [{ date: '06/03/2018', score: '21-7', team1: 'Raiders', team2: 'Ravens' },
+      { date: '07/20/2018', score: '18-46', team1: 'Falcons', team2: 'Patriots' }],
       partialRender: 'schedule'
     },
     type: teamTypes.VIEW_SCHEDULE
@@ -38,9 +38,9 @@ export const fetchSchedule = () => {
     .catch((err: any) => {
       console.log(err);
     })}*/
-  }
+}
 
-export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
+export const fetchRoster = (alias: any, weekNum: any) => (dispatch: any) => {
   const getRoster: any = fetch(`http://localhost:8080/season/${alias}/${weekNum}/roster`);
   getRoster
     .then((resp: any) => {
@@ -57,7 +57,7 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       console.log(roster);
       dispatch({
         payload: {
-            roster
+          roster
         },
         type: teamTypes.VIEW_ROSTER,
       });
