@@ -3,45 +3,43 @@ export const teamTypes = {
   VIEW_SCHEDULE: 'VIEW_SCHEDULE',
 }
 
-export const fetchSchedule = () => {
-  
-  return {
-    payload: {
-      games: [{date: '06/03/2018', score: '21-7', team1: 'Raiders', team2: 'Ravens'},
-              {date: '07/20/2018', score: '18-46', team1: 'Falcons', team2: 'Patriots'}],
-      partialRender: 'schedule'
-    },
-    type: teamTypes.VIEW_SCHEDULE
-  }
-
-  /*{const getSchedule: any = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+export const fetchSchedule = (alias:any,weekNum:any)=>(dispatch: any) => {
+  const getSchedule: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/schedule`);
   getSchedule
     .then((resp: any) => {
       return resp.json();
     })
     .then((respObj: any) => {
-      const games = [];
-      for(const game in respObj.games) {
-        if (game && respObj.games[game]) {
-          games.push(game);
-        }
-      }
       dispatch({
         payload: {
-          partialRender: () => {return (<Schedule games={games}/>)}
-          }
+          awayName: respObj.g.away.name,
+          awayPenalties: respObj.gs.statistics.away.summary.penalties,
+          awayPossessionTime: respObj.gs.statistics.away.summary.possession_time, 
+          awaySafeties: respObj.gs.statistics.away.summary.safeties,
+          awayScore: respObj.g.scoring.away_points,
+          awayTotalYards: respObj.gs.statistics.away.summary.total_yards, 
+          awayTurnovers: respObj.gs.statistics.away.summary.turnovers,  
+          date: respObj.g.scheduled,
+          fumbles: respObj.gs.statistics.home.summary.fumbles,
+          homeName: respObj.g.home.name,
+          homePenalties: respObj.gs.statistics.home.summary.penalties,
+          homePossessionTime: respObj.gs.statistics.home.summary.possession_time, 
+          homeSafeties: respObj.gs.statistics.home.summary.safeties,
+          homeScore: respObj.g.scoring.home_points,
+          homeTotalYards: respObj.gs.statistics.home.summary.total_yards, 
+          homeTurnovers: respObj.gs.statistics.home.summary.turnovers,  
+          partialRender: 'schedule',
         },
-       type: teamTypes.VIEW_SCHEDULE,
-
+        type: teamTypes.VIEW_SCHEDULE,
       });
     })
     .catch((err: any) => {
       console.log(err);
-    })}*/
-  }
+    });
+}
 
 export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
-  const getRoster: any = fetch(`http://localhost:8080/season/${alias}/${weekNum}/roster`);
+  const getRoster: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/roster`);
   getRoster
     .then((resp: any) => {
       return resp.json();
@@ -57,6 +55,7 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       console.log(roster);
       dispatch({
         payload: {
+            partialRender: 'roster',
             roster
         },
         type: teamTypes.VIEW_ROSTER,

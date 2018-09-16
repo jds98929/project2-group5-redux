@@ -20,7 +20,7 @@ export const RosterComponent: React.StatelessComponent<IProps> = (props) => {
      </tr>
       <tbody id="roster-table-body">
         {
-          roster.map((player: any) => (
+          roster && roster.map((player: any) => (
             <tr key={player.name}>
               <td>{player.name}</td>
               <td>{player.age}</td>

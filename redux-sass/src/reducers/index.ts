@@ -11,7 +11,21 @@ export interface ISignInState {
 }
 
 export interface ITeamState {
-  games: any,
+  awayName: any,
+  awayPenalties: any,
+  awayPossessionTime: any, 
+  awaySafeties: any,
+  awayScore: any,
+  awayTotalYards: any, 
+  awayTurnovers: any,  
+  date: any,
+  homeName: any,
+  homePenalties: any,
+  homePossessionTime: any, 
+  homeSafeties: any,
+  homeScore: any,
+  homeTotalYards: any, 
+  homeTurnovers: any,  
   partialRender: string,
   roster: any,
   teamName: string,
