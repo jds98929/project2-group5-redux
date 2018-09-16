@@ -54,8 +54,6 @@ export const teamReducer = (state = initialState, action: any) => {
       }
   }
 
-
-
   return state;
 
 }

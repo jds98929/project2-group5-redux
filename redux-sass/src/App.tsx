@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import SignInComponent from './components/sign-in/sign-in.component';
-import { HomeComponent } from './components/home/home.component';
+import HomeComponent from './components/home/home.component';
 
 class App extends React.Component {
   public render() {

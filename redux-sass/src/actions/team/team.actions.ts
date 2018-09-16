@@ -3,6 +3,7 @@ export const teamTypes = {
   VIEW_SCHEDULE: 'VIEW_SCHEDULE',
 }
 
+
 export const fetchSchedule = (alias:any,weekNum:any)=>(dispatch: any) => {
   const getSchedule: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/schedule`);
   getSchedule
@@ -55,8 +56,8 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       console.log(roster);
       dispatch({
         payload: {
-            partialRender: 'roster',
-            roster
+          partialRender: 'roster',
+          roster
         },
         type: teamTypes.VIEW_ROSTER,
       });
