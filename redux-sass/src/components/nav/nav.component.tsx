@@ -2,9 +2,12 @@ import * as React from 'react';
 import { Link } from "react-router-dom";
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
+
     const userString: any = localStorage.getItem('user');
-    const user: any = JSON.parse(userString);
-    
+    let user: any = '';
+    if(userString){
+        user = JSON.parse(userString);
+    }
     const handle = (event:any) => {
       const teamName: string = event.target.id;
       localStorage.setItem('teamName', teamName);
@@ -50,7 +53,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                 <div
                   className="dropdown-menu"
                   aria-labelledby="examples-dropdown"
-                > {user.teams.map((team: any) => (
+                > {user && user.teams.map((team: any) => (
                   <div className="dropdown-item">
                     <Link id={team.name} onClick={handle} to="/team" className="unset-anchor nav-link active">
                       {team.name}            
