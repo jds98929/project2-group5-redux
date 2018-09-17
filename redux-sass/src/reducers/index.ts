@@ -29,16 +29,15 @@ export interface ITeamState {
   homeTurnovers: any,  
   partialRender: string,
   roster: any,
-  teamName: string,
 }
 export interface IHomeState {
   gameWeek: any
 }
 
 export interface IState {
+  home: IHomeState,
   team: ITeamState,
   signIn: ISignInState,
-  home: IHomeState
 }
 
 export const state = combineReducers<IState>({

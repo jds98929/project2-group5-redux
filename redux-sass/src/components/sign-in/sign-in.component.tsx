@@ -23,7 +23,6 @@ class SignInComponent extends React.Component<IProps, {}> {
     e.preventDefault();
     fetch(environment.context + 'users/login', {
       body: JSON.stringify(this.props.credentials),
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -42,7 +41,7 @@ class SignInComponent extends React.Component<IProps, {}> {
       })
       .then(resp => {
         localStorage.setItem('user', JSON.stringify(resp));
-        this.props.history.push('/home');
+        this.props.history.push('/home');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
       })
       .catch(err => {
         console.log(err);
@@ -61,6 +60,7 @@ class SignInComponent extends React.Component<IProps, {}> {
     const { errorMessage, credentials } = this.props;
 
     return (
+  
       <form className="form-signin" onSubmit={this.submit}>
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 

@@ -20,7 +20,6 @@ const initialState: ITeamState = {
     homeTurnovers: '',  
     partialRender: '',
     roster: [],
-    teamName: '',
 }
 
 export const teamReducer = (state = initialState, action: any) => {

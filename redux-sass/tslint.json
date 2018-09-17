@@ -8,7 +8,7 @@
     ]
   },
   "rules": {
-    
+    "curly": false,
     "ordered-imports": false,
     "jsx-self-close": false,
     "jsx-no-lambda": false,

@@ -4,7 +4,7 @@ export const homeTypes = {
 
 
 export const fetchWeekSchedule = () => (dispatch: any) => {
-    const getSchedule: any = fetch(`http://localhost:8080/season/week/1`);
+    const getSchedule: any = fetch(`http://localhost:3001/season/week/1`);
     getSchedule
         .then((resp: any) => {
             return resp.json();
