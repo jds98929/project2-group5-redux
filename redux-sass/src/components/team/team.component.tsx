@@ -30,6 +30,9 @@ export class TeamComponent extends React.Component<IProps, any> {
     const teamName = this.props.teamName;
     return (
       <div>
+        <div>
+          <button> << 
+        </div>
         <select onChange={(event) => {
           event.preventDefault();
           this.props.updateTeamInfo(this.props.teamName, event)}}>

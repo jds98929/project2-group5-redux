@@ -34,6 +34,7 @@ export interface ITeamState {
   alias: any,
 }
 export interface IHomeState {
+  divStandings: any,
   gameWeek: any
 }
 
