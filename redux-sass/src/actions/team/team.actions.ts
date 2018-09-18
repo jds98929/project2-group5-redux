@@ -1,8 +1,10 @@
+
 export const teamTypes = {
+  UPDATE_RENDER: 'UPDATE_RENDER',
+  UPDATE_TEAM: 'UPDATE_TEAM',
   VIEW_ROSTER: 'VIEW_ROSTER',
   VIEW_SCHEDULE: 'VIEW_SCHEDULE',
 }
-
 
 export const fetchSchedule = (alias:any,weekNum:any)=>(dispatch: any) => {
   const getSchedule: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/schedule`);
@@ -29,7 +31,6 @@ export const fetchSchedule = (alias:any,weekNum:any)=>(dispatch: any) => {
           homeScore: respObj.g.scoring.home_points,
           homeTotalYards: respObj.gs.statistics.home.summary.total_yards, 
           homeTurnovers: respObj.gs.statistics.home.summary.turnovers,  
-          partialRender: 'schedule',
         },
         type: teamTypes.VIEW_SCHEDULE,
       });
@@ -56,7 +57,6 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       console.log(roster);
       dispatch({
         payload: {
-          partialRender: 'roster',
           roster
         },
         type: teamTypes.VIEW_ROSTER,
@@ -66,3 +66,47 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       console.log(err);
     });
 }
+
+export const updateRender = (event: any) => {
+  if (event.target.id === 'schedule') {
+    return {
+      payload: {
+        partialRender: 'schedule',
+      },
+      type: teamTypes.UPDATE_RENDER
+    }
+  }
+  else {
+    return {
+      payload: {
+        partialRender: 'roster',
+      },
+      type: teamTypes.UPDATE_RENDER
+    }
+  }
+}
+
+export const updateTeamInfo = (oldName: string, event: any) => {
+  let abbrev = '';
+  if (event.target.value !== 'none'){
+    const newName = event.target.value;
+    const userString: any = localStorage.getItem('user')
+    const user = JSON.parse(userString);
+    user.teams.forEach((team:any) => {
+      if (team.name === newName) {
+        abbrev = team.alias;
+      }
+    });
+    return {
+      payload: {
+        alias: abbrev,
+        oldTeamName: oldName,
+        teamName: newName,
+      },
+      type: teamTypes.UPDATE_TEAM
+    }
+  }
+  return;
+}
+
+

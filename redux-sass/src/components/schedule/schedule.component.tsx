@@ -52,7 +52,7 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
           <td> {awayName && awayName} </td>
           <td> 
             {date && date.substring(0,10)} 
-            {date && setTime(+date.substring(11,13))} 
+            {date && setTime(+date.substring(11,13)) + ' '} 
             {date && date.substring(13, 16)} PM
           </td>
         </tr>

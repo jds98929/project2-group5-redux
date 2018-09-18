@@ -27,8 +27,11 @@ export interface ITeamState {
   homeScore: any,
   homeTotalYards: any, 
   homeTurnovers: any,  
+  oldTeamName: any,
   partialRender: string,
   roster: any,
+  teamName: any,
+  alias: any,
 }
 export interface IHomeState {
   divStandings: any,
