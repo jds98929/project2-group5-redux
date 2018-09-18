@@ -3,17 +3,6 @@ import { Link } from "react-router-dom";
 
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
-
-    const userString: any = localStorage.getItem('user');
-    let user: any = '';
-    if(userString){
-        user = JSON.parse(userString);
-    }
-    const handle = (event:any) => {
-      const teamName: string = event.target.id;
-      localStorage.setItem('teamName', teamName);
-    }
-
     return (
       <div>
         <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
@@ -42,26 +31,9 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                 </Link>
               </li>
               <li className="nav-item active dropdown">
-                <a
-                  className="nav-link dropdown-toggle pointer"
-                  id="examples-dropdown"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <Link to ="/team" className="unset-anchor nav-link">
                   Favorite Teams
-                </a>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="examples-dropdown"
-                > {user && user.teams.map((team: any) => (
-                  <div className="dropdown-item">
-                    <Link id={team.name} onClick={handle} to="/team" className="unset-anchor nav-link active">
-                      {team.name}            
-                    </Link>
-                  </div>
-                ))}
-                </div>
+                </Link>
               </li>
             </ul>
           </div>
