@@ -3,6 +3,7 @@ import { teamTypes } from "../actions/team/team.actions";
 
 
 const initialState: ITeamState = {
+    alias: '',
     awayName: '',
     awayPenalties: '',
     awayPossessionTime: '', 
@@ -18,12 +19,28 @@ const initialState: ITeamState = {
     homeScore: '',
     homeTotalYards: '', 
     homeTurnovers: '',  
-    partialRender: '',
+    oldTeamName: '',
+    partialRender: 'schedule',
     roster: [],
+    teamName: ''
 }
 
 export const teamReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case teamTypes.UPDATE_RENDER:
+      return {
+        ...state,
+        partialRender: action.payload.partialRender
+      }
+
+    case teamTypes.UPDATE_TEAM:
+      return {
+        ...state,
+        alias: action.payload.alias,
+        oldTeamName: action.payload.oldTeamName,
+        teamName: action.payload.teamName
+      }
+
     case teamTypes.VIEW_SCHEDULE:
       return {
         ...state,
@@ -42,13 +59,11 @@ export const teamReducer = (state = initialState, action: any) => {
         homeScore: action.payload.homeScore,
         homeTotalYards: action.payload.homeTotalYards, 
         homeTurnovers: action.payload.homeTurnovers,  
-        partialRender: action.payload.partialRender,
       }
 
     case teamTypes.VIEW_ROSTER:
       return {
         ...state,
-        partialRender: action.payload.partialRender,
         roster: action.payload.roster
       }
   }
