@@ -31,6 +31,7 @@ export interface ITeamState {
   roster: any,
 }
 export interface IHomeState {
+  divStandings: any,
   gameWeek: any
 }
 
