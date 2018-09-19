@@ -20,6 +20,14 @@ $revature-orange: #f26925;
   padding-bottom: 20px !important;
 }
 
+#inputUsername{
+  margin-bottom: 20px !important;
+}
+
+#inputPassword{
+  margin-bottom: 20px !important;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -27,34 +35,6 @@ body {
   
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 
 #main-content-container {
@@ -69,17 +49,16 @@ body {
   background: #2d2d30;
   color: #bdbdbd;
   height: 553px;
+
   
 }
 
+.rounded-circle{
+  margin-left: 25px !important;
+}
 
-
-.person {
-  border: 10px solid transparent;
-  margin-bottom: 25px;
-  width: 80%;
-  height: 80%;
-  opacity: 0.7;
+.h3{
+  margin-left: 15px !important;
 }
 
 
@@ -151,3 +130,34 @@ nav {
 .red {
   color: red;
 }
+
+
+
+// .App {
+//   text-align: center;
+// }
+
+// .App-logo {
+//   animation: App-logo-spin infinite 20s linear;
+//   height: 80px;
+// }
+
+// .App-header {
+//   background-color: #222;
+//   height: 150px;
+//   padding: 20px;
+//   color: white;
+// }
+
+// .App-title {
+//   font-size: 1.5em;
+// }
+
+// .App-intro {
+//   font-size: large;
+// }
+
+// @keyframes App-logo-spin {
+//   from { transform: rotate(0deg); }
+//   to { transform: rotate(360deg); }
+// }

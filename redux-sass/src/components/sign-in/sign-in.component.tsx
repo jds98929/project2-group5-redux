@@ -95,13 +95,12 @@ class SignInComponent extends React.Component<IProps, {}> {
           <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           {errorMessage && <p id="error-message">{errorMessage}</p>}
         </form>
-        <div className="row">
-        <div id="sign-in-row"> 
-          <div className="col-sm-4">
+        <div className="row"> 
+         
             <br />
             <img src={logo2}className="rounded-circle" width="255" height="200"></img> 
-          </div>
-        </div>
+          
+        
         </div>
       </div> 
     );
