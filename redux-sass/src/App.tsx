@@ -16,15 +16,21 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <AppNav/>
+            <div className="bg-1">
             <div id="main-content-container">
+
+
               <Switch>
                 <Route path="/team" component={TeamComponent} />
                 <Route path="/sign-in" component={SignInComponent} />
                 <Route path="/home" component={HomeComponent} />
                 <Route component={SignInComponent} />
               </Switch>
+             </div> 
             </div>
-          </div>
+
+            </div>
+          
         </BrowserRouter>
       </Provider>
     );

@@ -8,47 +8,57 @@ $revature-orange: #f26925;
   flex-direction: column;
 }
 
+.border{
+  margin-top: 20px !important;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+
+  padding-top: 20px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+#inputUsername{
+  margin-bottom: 20px !important;
+}
+
+#inputPassword{
+  margin-bottom: 20px !important;
+}
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 
 #main-content-container {
   @include flex-col;
   width: 100%;
+  
   align-items: center
+  
+}
+
+.bg-1 {
+  background: #2d2d30;
+  color: #bdbdbd;
+  height: 553px;
+
+  
+}
+
+.rounded-circle{
+  margin-left: 25px !important;
+}
+
+.h3{
+  margin-left: 15px !important;
 }
 
 
@@ -100,7 +110,7 @@ button.rev-btn {
 
 nav {
   border-bottom: 1px solid #ffffff !important;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   -webkit-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
   -moz-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
   box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
@@ -120,3 +130,34 @@ nav {
 .red {
   color: red;
 }
+
+
+
+// .App {
+//   text-align: center;
+// }
+
+// .App-logo {
+//   animation: App-logo-spin infinite 20s linear;
+//   height: 80px;
+// }
+
+// .App-header {
+//   background-color: #222;
+//   height: 150px;
+//   padding: 20px;
+//   color: white;
+// }
+
+// .App-title {
+//   font-size: 1.5em;
+// }
+
+// .App-intro {
+//   font-size: large;
+// }
+
+// @keyframes App-logo-spin {
+//   from { transform: rotate(0deg); }
+//   to { transform: rotate(360deg); }
+// }
