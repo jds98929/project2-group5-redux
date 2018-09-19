@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import SignInComponent from './components/sign-in/sign-in.component';
 import HomeComponent from './components/home/home.component';
-
+import logo1 from './assets/logo1.png'
 class App extends React.Component {
   public render() {
     return (
@@ -16,15 +16,26 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <AppNav/>
+            <div className="bg-1">
             <div id="main-content-container">
+              <div className="row">
+                <div className="col-sm-4">
+                  <p><strong>Name</strong></p><br />
+                  <img src={logo1} className="rounded-circle" alt="Random Name"></img> 
+                </div>
+              </div>
+
               <Switch>
                 <Route path="/team" component={TeamComponent} />
                 <Route path="/sign-in" component={SignInComponent} />
                 <Route path="/home" component={HomeComponent} />
                 <Route component={SignInComponent} />
               </Switch>
+             </div> 
             </div>
-          </div>
+
+            </div>
+          
         </BrowserRouter>
       </Provider>
     );
