@@ -16,12 +16,14 @@ interface IProps extends ITeamState{
 
 export class TeamComponent extends React.Component<IProps, any> {
 
-  public componentDidUpdate(){
-    if (this.props.partialRender === 'schedule') {
-      this.props.fetchSchedule(this.props.alias, this.props.weekNum);
-    }
-    if (this.props.partialRender === 'roster') {
-      this.props.fetchRoster(this.props.alias, this.props.weekNum);
+  public componentDidUpdate(prevProps: IProps){
+    if(this.props.weekNum !== prevProps.weekNum || this.props.teamName !== prevProps.teamName || this.props.partialRender !== prevProps.partialRender){
+      if (this.props.partialRender === 'schedule') {
+        this.props.fetchSchedule(this.props.alias, this.props.weekNum);
+      }
+      if (this.props.partialRender === 'roster') {
+        this.props.fetchRoster(this.props.alias, this.props.weekNum);
+      }
     }
   }
 

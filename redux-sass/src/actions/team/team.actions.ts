@@ -81,14 +81,14 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       return resp.json();
     })
     .then((respObj: any) => {
-      const roster = [];
-      console.log(`resp body:  ${respObj[0].name}`)
-      for (const player in respObj) {
-        if (player && respObj) {
-          roster.push(respObj[player]);
-        }
+      const roster: string[] = [];
+      if (respObj) {
+        for (const player in respObj) {
+          if (player) {
+            roster.push(respObj[player]);
+          }
+        } 
       }
-      console.log(roster);
       dispatch({
         payload: {
           roster
@@ -97,7 +97,19 @@ export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
       });
     })
     .catch((err: any) => {
-      console.log(err);
+      if (err.name === 'SyntaxError'){
+        const roster: string[] = [];
+        roster.push('This week\'s roster is not available yet')
+        dispatch({
+          payload: {
+            roster
+          },
+          type: teamTypes.VIEW_ROSTER,
+        });
+      }
+      else {
+        console.log(err);
+      }
     });
 }
 
