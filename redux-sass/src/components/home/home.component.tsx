@@ -24,7 +24,7 @@ export class HomeComponent extends React.Component<IProps, any> {
                             event.preventDefault();
                             this.props.fetchWeekSchedule(event.target.value);
                         }}>
-                            <option selected>Select week</option>
+                            <option selected>Select Week</option>
                             <option value={1}>Week 1</option>
                             <option value={2}>Week 2</option>
                             <option value={3}>Week 3</option>
@@ -46,11 +46,11 @@ export class HomeComponent extends React.Component<IProps, any> {
                         <LeagueScheduleComponent gameWeek={gameWeek}></LeagueScheduleComponent>
                     </div>
                     <div className="col-4 h-50">
-                        <select className="custom-select custom-select-sm" onChange={(event: any) => {
+                        <select className="custom-select " onChange={(event: any) => {
                             event.preventDefault();
                             this.props.fetchDivStandings(event.target.value);
                         }}>
-                            <option selected>Select division</option>
+                            <option selected>Select Division</option>
                             <option value="AFC/AFC_EAST">AFC East</option>
                             <option value="AFC/AFC_NORTH">AFC North</option>
                             <option value="AFC/AFC_WEST">AFC West</option>
@@ -61,15 +61,16 @@ export class HomeComponent extends React.Component<IProps, any> {
                             <option value="NFC/NFC_SOUTH">NFC South</option>
                         </select>
                         <LeagueStandingsComponent divStandings={divStandings}></LeagueStandingsComponent>
+                        <div className="col-4">
+                            <div className="h-33">
+                                <h5>View Teams</h5>
+                                <p>Description </p>
+                                <Link to="/" className=""><button className="btn btn-secondary" role="button">View Table</button></Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="col-4">
-                    <div className="h-33">
-                        <h5>View Teams</h5>
-                        <p>Description </p>
-                        <Link to="/" className=""><button className="btn btn-secondary" role="button">View Table</button></Link>
-                    </div>
-                </div>
+
             </div>
         );
     }

@@ -7,13 +7,13 @@ export const LeagueStandingsComponent: React.StatelessComponent<IProps> = (props
     const { divStandings } = props
     return (
 
-        <table className="table table-sm table-striped table-dark col " id="standings">
+        <table className="table table-sm table-striped table-dark table-bordered rounded-bottom col " id="standings">
 
             <tr>
-                <th scope="col">Teams</th>
-                <th scope="col">Win</th>
-                <th scope="col">Losses</th>
-                <th scope="col">Ties</th>
+                <th scope="col-1">Teams</th>
+                <th scope="col-1">Win</th>
+                <th scope="col-1">Losses</th>
+                <th scope="col-1">Ties</th>
             </tr>
 
             <tbody id="standings-table-body">
