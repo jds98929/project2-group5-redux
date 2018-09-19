@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { IState, ITeamState, ISignInState} from '../../reducers';
+import { IState, ITeamState} from '../../reducers';
 import { connect } from 'react-redux';
 import { fetchSchedule, fetchRoster, updateRender, updateTeamInfo, updateWeek } from '../../actions/team/team.actions';
 import { ScheduleComponent } from '../schedule/schedule.component';
 import { RosterComponent } from '../roster/roster.component';
 
  
-interface IProps extends ITeamState, ISignInState {
+interface IProps extends ITeamState{
   fetchSchedule: (alias: any, weekNum: any) => any,
   fetchRoster:(alias : any, weekNum : any) => any,
   updateRender:(event: any) => any,

@@ -3,6 +3,59 @@ import { Link } from "react-router-dom";
 
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
+    let newTeams: string[] = [];
+    const updateAddList = (event: any) => {
+      if (event.target.checked) {
+        newTeams.push(event.target.value);
+        alert(newTeams);
+      }
+    }
+    const addTeams = (event: any) => {
+      const userString: any = localStorage.getItem('user');
+      const user = JSON.parse(userString);
+      newTeams.forEach((team) => {
+        fetch(`http://localhost:3001/users/${user.id}/${team}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'GET',
+        })
+        .then(resp => {
+          console.log(resp.status)
+          if (resp.status === 401) {
+            alert('Invalid Credentials');
+          } else if (resp.status === 200) {
+            return resp.json();
+          } else {
+            alert('Failed to update teams');
+          }
+          throw new Error('Failed to update teams');
+        })
+        .then(resp => {
+          alert(user);
+          localStorage.setItem('user', JSON.stringify(resp));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      })
+      newTeams = [];
+    }
+    const excludeUserTeams = (teamName: string) => {
+      let exclude: boolean = false;
+      const userString: any = localStorage.getItem('user');
+      const user = JSON.parse(userString);
+      user.teams.forEach((team: any)=> { 
+        if (team.name === teamName) {
+          exclude = true; 
+        }
+      });
+      if (!exclude) {
+        return teamName;
+      }
+      return;
+    }
+    const nflTeams: string[] = ['Falcons', 'Broncos', 'Steelers', 'Panthers']
     return (
       <div>
         <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
@@ -31,9 +84,24 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                 </Link>
               </li>
               <li className="nav-item active dropdown">
-                <Link to="/team" className="unset-anchor nav-link">
-                  Favorite Teams
-                </Link>
+              <a className="nav-link dropdown-toggle pointer" id="team-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite Teams</a>
+              <div className="dropdown-menu" aria-labelledby="team-dropdown">
+                <div className="dropdown-item"><Link to="/team" className="unset-anchor nav-link active">My Teams</Link></div>               
+                <div className="dropdown-submenu">
+                  <li className="nav-item active dropdown">
+                  <a className="nav-link dropdown-toggle pointer" id="add-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Teams</a>
+                  <div className="dropdown-item" aria-labelledby="add-dropdown">
+                    {nflTeams.filter(excludeUserTeams).map((team: string) => (
+                      <div className="dropdown-item">
+                        <input onClick={updateAddList} type="checkbox" value={team} /> {team}
+                      </div>
+                      ))
+                    }
+                    <button onClick={addTeams}>Add Teams</button> 
+                  </div>
+                </li>
+                </div>
+              </div>
               </li>
             </ul>
           </div>
