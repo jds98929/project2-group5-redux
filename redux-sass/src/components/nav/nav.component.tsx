@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
-
     return (
       <div>
         <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
