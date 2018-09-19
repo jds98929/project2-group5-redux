@@ -4,7 +4,7 @@ import { ISignInState, IState } from '../../reducers';
 import * as signInActions from '../../actions/sign-in/sign-in.actions';
 import { connect } from 'react-redux';
 import { environment } from '../../environment';
-import logo1 from '../../assets/logo1.png'
+import logo2 from '../../assets/logo2.jpeg'
 
 interface IProps extends RouteComponentProps<{}>, ISignInState {
   updateError: (message: string) => any
@@ -95,10 +95,12 @@ class SignInComponent extends React.Component<IProps, {}> {
           {errorMessage && <p id="error-message">{errorMessage}</p>}
         </form>
         <div className="row">
+        <div id="sign-in-row"> 
           <div className="col-sm-4">
-            <p><strong>Name</strong></p><br />
-            <img src={logo1} className="rounded-circle" alt="Random Name"></img> 
+            <br />
+            <img src={logo2}className="rounded-circle" width="255" height="255"></img> 
           </div>
+        </div>
         </div>
       </div> 
     );

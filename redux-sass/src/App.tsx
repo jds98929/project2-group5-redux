@@ -18,12 +18,7 @@ class App extends React.Component {
             <AppNav/>
             <div className="bg-1">
             <div id="main-content-container">
-              {/* <div className="row">
-                <div className="col-sm-4">
-                  <p><strong>Name</strong></p><br />
-                  <img src={logo1} className="rounded-circle" alt="Random Name"></img> 
-                </div>
-              </div> */}
+
 
               <Switch>
                 <Route path="/team" component={TeamComponent} />
