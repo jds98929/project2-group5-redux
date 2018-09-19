@@ -5,7 +5,7 @@ export const homeTypes = {
 
 
 export const fetchWeekSchedule = (weekNumber: number) => (dispatch: any) => {
-    const getSchedule: any = fetch(`http://localhost:8080/season/week/${weekNumber}`);
+    const getSchedule: any = fetch(`http://localhost:3001/season/week/${weekNumber}`);
     getSchedule
         .then((resp: any) => {
             return resp.json();
@@ -31,7 +31,7 @@ export const fetchWeekSchedule = (weekNumber: number) => (dispatch: any) => {
 }
 export const fetchDivStandings = (endPoint: string) => (dispatch: any) => {
     console.log(endPoint)
-    const getStandings: any = fetch(`http://localhost:8080/season/standings/${endPoint}`);
+    const getStandings: any = fetch(`http://localhost:3001/season/standings/${endPoint}`);
     getStandings
         .then((resp: any) => {
             return resp.json();

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IState, ITeamState, ISignInState} from '../../reducers';
 import { connect } from 'react-redux';
-import { fetchSchedule, fetchRoster, updateRender, updateTeamInfo } from '../../actions/team/team.actions';
+import { fetchSchedule, fetchRoster, updateRender, updateTeamInfo, updateWeek } from '../../actions/team/team.actions';
 import { ScheduleComponent } from '../schedule/schedule.component';
 import { RosterComponent } from '../roster/roster.component';
 
@@ -10,17 +10,18 @@ interface IProps extends ITeamState, ISignInState {
   fetchSchedule: (alias: any, weekNum: any) => any,
   fetchRoster:(alias : any, weekNum : any) => any,
   updateRender:(event: any) => any,
-  updateTeamInfo:(oldName: string, event: any) => any
+  updateTeamInfo:(oldName: string, event: any) => any,
+  updateWeek:(event: any, oldWeek: number) => any
 }
 
 export class TeamComponent extends React.Component<IProps, any> {
 
   public componentDidUpdate(){
     if (this.props.partialRender === 'schedule') {
-      this.props.fetchSchedule(this.props.alias, 1);
+      this.props.fetchSchedule(this.props.alias, this.props.weekNum);
     }
     if (this.props.partialRender === 'roster') {
-      this.props.fetchRoster(this.props.alias, 1);
+      this.props.fetchRoster(this.props.alias, this.props.weekNum);
     }
   }
 
@@ -28,16 +29,14 @@ export class TeamComponent extends React.Component<IProps, any> {
     const userString: any = localStorage.getItem('user');
     const user: any = JSON.parse(userString);
     const teamName = this.props.teamName;
+    const weekNum = this.props.weekNum;
     return (
       <div>
-        <div>
-          <button> << 
-        </div>
         <select onChange={(event) => {
           event.preventDefault();
           this.props.updateTeamInfo(this.props.teamName, event)}}>
           <option value="none"> Select a team </option>
-          {user && user.teams.map((team: any) => (
+          {user.teams.map((team: any) => (
             <option value={team.name}> {team.name} </option>
           ))
           }
@@ -56,6 +55,17 @@ export class TeamComponent extends React.Component<IProps, any> {
           Roster
         </button>
         <br/>
+        <div>
+          {weekNum !== 1 ? <button value="back" 
+          onClick={(event: any) => {
+            event.preventDefault();
+            this.props.updateWeek(event, weekNum)}}> prev </button> : ''
+          }
+          Week {weekNum}
+          <button value="forward" onClick={(event: any) => {
+            event.preventDefault();
+            this.props.updateWeek(event, weekNum)}}> next </button>
+        </div>
         <div>
         {this.props.partialRender === 'schedule' ? 
         <ScheduleComponent 
@@ -83,7 +93,8 @@ const mapDispatchToProps = {
   fetchRoster,
   fetchSchedule,
   updateRender,
-  updateTeamInfo
+  updateTeamInfo,
+  updateWeek
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamComponent);

@@ -12,6 +12,7 @@ export interface ISignInState {
 }
 
 export interface ITeamState {
+  awayFumbles: any,
   awayName: any,
   awayPenalties: any,
   awayPossessionTime: any, 
@@ -20,6 +21,7 @@ export interface ITeamState {
   awayTotalYards: any, 
   awayTurnovers: any,  
   date: any,
+  homeFumbles: any,
   homeName: any,
   homePenalties: any,
   homePossessionTime: any, 
@@ -31,6 +33,7 @@ export interface ITeamState {
   partialRender: string,
   roster: any,
   teamName: any,
+  weekNum: number,
   alias: any,
 }
 export interface IHomeState {

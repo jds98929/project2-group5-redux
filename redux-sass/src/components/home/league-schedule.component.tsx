@@ -14,7 +14,7 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
                         <tr key={game.id}>
                             <td>@{game.home.alias} vs. {game.away.alias}</td>
                             {/* <td>{game.scoring.home_points} - {game.scoring.away_points}</td> */}
-                            <td>{game.broadcast.network}</td>
+                            {/*<td>{game.broadcast.network}</td>*/}
                             <td>{game.scheduled}</td>
                         </tr>
                     ))
