@@ -12,7 +12,8 @@ $revature-orange: #f26925;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  
 }
 
 .App {
@@ -48,6 +49,7 @@ body {
 #main-content-container {
   @include flex-col;
   width: 100%;
+  
   align-items: center
   
 }
@@ -55,6 +57,8 @@ body {
 .bg-1 {
   background: #2d2d30;
   color: #bdbdbd;
+  height: 533px;
+  
 }
 
 .person {
