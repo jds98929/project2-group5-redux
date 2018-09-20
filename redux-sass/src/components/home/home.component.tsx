@@ -20,7 +20,7 @@ export class HomeComponent extends React.Component<IProps, any> {
                 <div className="row">
                     <div className="col-8 h-50">
 
-                        <select className="custom-select custom-select-sm" onChange={(event: any) => {
+                        <select className="custom-select custom-select-sm" id="week-selector" onChange={(event: any) => {
                             event.preventDefault();
                             this.props.fetchWeekSchedule(event.target.value);
                         }}>
@@ -45,7 +45,7 @@ export class HomeComponent extends React.Component<IProps, any> {
                         </select>
                         <LeagueScheduleComponent gameWeek={gameWeek}></LeagueScheduleComponent>
                     </div>
-                    <div className="col-4 h-50">
+                    <div className="col-4 h-50" id="select-division-column">
                         <select className="custom-select " onChange={(event: any) => {
                             event.preventDefault();
                             this.props.fetchDivStandings(event.target.value);
