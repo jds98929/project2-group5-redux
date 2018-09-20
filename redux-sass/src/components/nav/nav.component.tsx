@@ -13,31 +13,30 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
     const addTeams = (event: any) => {
       const userString: any = localStorage.getItem('user');
       const user = JSON.parse(userString);
-      newTeams.forEach((team) => {
-        fetch(`http://localhost:3001/users/${user.id}/${team}`, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'GET',
-        })
-        .then(resp => {
-          console.log(resp.status)
-          if (resp.status === 401) {
-            alert('Invalid Credentials');
-          } else if (resp.status === 200) {
-            return resp.json();
-          } else {
-            alert('Failed to update teams');
-          }
-          throw new Error('Failed to update teams');
-        })
-        .then(resp => {
-          alert(user);
-          localStorage.setItem('user', JSON.stringify(resp));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-        })
-        .catch(err => {
-          console.log(err);
-        })
+      fetch(`http://localhost:3001/users/${user.id}/updateTeams`, {
+        body: JSON.stringify(newTeams),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+      .then(resp => {
+        console.log(resp.status)
+        if (resp.status === 401) {
+          alert('Invalid Credentials');
+        } else if (resp.status === 200) {
+          return resp.json();
+        } else {
+          alert('Failed to update teams');
+        }
+        throw new Error('Failed to update teams');
+      })
+      .then(resp => {
+        alert(user.teams);
+        localStorage.setItem('user', JSON.stringify(resp));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+      })
+      .catch(err => {
+        console.log(err);
       })
       newTeams = [];
     }
@@ -55,7 +54,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       }
       return;
     }
-    const nflTeams: string[] = ['Falcons', 'Broncos', 'Steelers', 'Panthers']
+    const nflTeams: string[] = ['Giants', '49ers', 'Bills', 'Falcons', 'Broncos', 'Steelers', 'Panthers']
     return (
       <div>
         <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
