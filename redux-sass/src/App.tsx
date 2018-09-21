@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import SignInComponent from './components/sign-in/sign-in.component';
 import HomeComponent from './components/home/home.component';
-
+import PlayerComponent from './components/player/player.component';
 class App extends React.Component {
   public render() {
     return (
@@ -18,6 +18,7 @@ class App extends React.Component {
             <AppNav/>
             <div id="main-content-container">
               <Switch>
+                <Route path="/player" component={PlayerComponent}/>
                 <Route path="/team" component={TeamComponent} />
                 <Route path="/sign-in" component={SignInComponent} />
                 <Route path="/home" component={HomeComponent} />
