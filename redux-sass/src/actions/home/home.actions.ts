@@ -1,6 +1,7 @@
 export const homeTypes = {
     VIEW_STANDINGS: 'VIEW_STANDINGS',
     VIEW_WEEK: 'VIEW_WEEK',
+    VIEW_PLAYS: 'VIEW_PLAYS'
 }
 
 
@@ -17,7 +18,6 @@ export const fetchWeekSchedule = (weekNumber: number) => (dispatch: any) => {
                     gameWeek.push(respObj[game])
                 }
             }
-            console.log(gameWeek)
             dispatch({
                 payload: {
                     gameWeek
@@ -43,12 +43,35 @@ export const fetchDivStandings = (endPoint: string) => (dispatch: any) => {
                     divStandings.push(respObj[div])
                 }
             }
-            console.log(divStandings)
             dispatch({
                 payload: {
                     divStandings
                 },
                 type: homeTypes.VIEW_STANDINGS,
+            });
+        })
+        .catch((err: any) => {
+            console.log(err)
+        })
+}
+export const fetchGame = (gameId: string) => (dispatch: any) => {
+    const getGame = fetch(`http://localhost:3001/season/${gameId}/plays`);
+    getGame
+        .then((resp: any) => {
+            return resp.json();
+        })
+        .then((respObj: any) => {
+            const plays = [];
+            for (const play in respObj) {
+                if (play && respObj) {
+                    plays.push(respObj[play]);
+                }
+            }
+            dispatch({
+                payload: {
+                    plays
+                },
+                type: homeTypes.VIEW_PLAYS,
             });
         })
         .catch((err: any) => {

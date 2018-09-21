@@ -38,7 +38,8 @@ export interface ITeamState {
 }
 export interface IHomeState {
   divStandings: any,
-  gameWeek: any
+  gameWeek: any,
+  plays: any
 }
 
 export interface IState {
