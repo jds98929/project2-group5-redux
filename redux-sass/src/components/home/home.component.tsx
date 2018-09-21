@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import * as React from 'react';
 import { LeagueScheduleComponent } from './league-schedule.component';
 import { IHomeState, IState } from '../../reducers';
-import { fetchWeekSchedule, fetchDivStandings, fetchGame } from '../../actions/home/home.actions';
+import {  fetchDivStandings, fetchGame, fetchWeekSchedule } from '../../actions/home/home.actions';
 import { LeagueStandingsComponent } from './league-standings.component';
 import { PlayByPlayComponent } from './play-by-play.component';
 
 interface IProps extends IHomeState {
     fetchDivStandings: (endPoint: string) => any,
-    fetchWeekSchedule: (weekNumber: number) => any,
-    fetchGame: (gameId: string) => any
+    fetchGame: (gameId: string) => any,
+    fetchWeekSchedule: (weekNumber: number) => any
 }
 
 // const saveID = (id: any) => {
@@ -82,7 +82,7 @@ export class HomeComponent extends React.Component<IProps, any> {
 const mapStateToProps = (state: IState) => state.home;
 const mapDispatchToProps = {
     fetchDivStandings,
-    fetchWeekSchedule,
-    fetchGame
+    fetchGame,
+    fetchWeekSchedule
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

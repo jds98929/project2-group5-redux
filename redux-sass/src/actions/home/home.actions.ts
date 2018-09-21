@@ -1,7 +1,7 @@
 export const homeTypes = {
+    VIEW_PLAYS: 'VIEW_PLAYS',
     VIEW_STANDINGS: 'VIEW_STANDINGS',
-    VIEW_WEEK: 'VIEW_WEEK',
-    VIEW_PLAYS: 'VIEW_PLAYS'
+    VIEW_WEEK: 'VIEW_WEEK'
 }
 
 
