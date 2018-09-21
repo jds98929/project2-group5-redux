@@ -5,8 +5,9 @@ import { IHomeState, IState } from '../../reducers';
 import {  fetchDivStandings, fetchGame, fetchWeekSchedule } from '../../actions/home/home.actions';
 import { LeagueStandingsComponent } from './league-standings.component';
 import { PlayByPlayComponent } from './play-by-play.component';
+import { RouteComponentProps } from '../../../node_modules/@types/react-router';
 
-interface IProps extends IHomeState {
+interface IProps extends IHomeState, RouteComponentProps<any>{
     fetchDivStandings: (endPoint: string) => any,
     fetchGame: (gameId: string) => any,
     fetchWeekSchedule: (weekNumber: number) => any
@@ -17,6 +18,12 @@ interface IProps extends IHomeState {
 // }
 
 export class HomeComponent extends React.Component<IProps, any> {
+
+    public componentDidMount(){
+        if (!localStorage.getItem('user')){
+          this.props.history.push('/sign-in')
+        }
+    }
 
     public render() {
         const { gameWeek, divStandings, plays } = this.props

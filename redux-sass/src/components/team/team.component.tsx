@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { fetchSchedule, fetchRoster, updateRender, updateTeamInfo, updateWeek } from '../../actions/team/team.actions';
 import { ScheduleComponent } from '../schedule/schedule.component';
 import { RosterComponent } from '../roster/roster.component';
+import { RouteComponentProps } from '../../../node_modules/@types/react-router';
 
 
  
-interface IProps extends ITeamState{
+interface IProps extends ITeamState, RouteComponentProps<any>{
   fetchSchedule: (alias: any, weekNum: any) => any,
   fetchRoster:(alias : any, weekNum : any) => any,
   updateRender:(event: any) => any,
@@ -16,6 +17,12 @@ interface IProps extends ITeamState{
 }
 
 export class TeamComponent extends React.Component<IProps, any> {
+
+  public componentDidMount(){
+    if (!localStorage.getItem('user')){
+      this.props.history.push('/sign-in')
+    }
+  }
 
   public componentDidUpdate(prevProps: IProps){
     if(this.props.weekNum !== prevProps.weekNum || this.props.teamName !== prevProps.teamName || this.props.partialRender !== prevProps.partialRender){
@@ -39,7 +46,7 @@ export class TeamComponent extends React.Component<IProps, any> {
           event.preventDefault();
           this.props.updateTeamInfo(this.props.teamName, event)}}>
           <option value="none"> Select a team </option>
-          {user.teams.map((team: any) => (
+          {user && user.teams.map((team: any) => (
             <option value={team.name}> {team.name} </option>
           ))
           }
