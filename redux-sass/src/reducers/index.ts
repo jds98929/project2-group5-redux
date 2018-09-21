@@ -1,7 +1,9 @@
 import { homeReducer } from "./home.reducer";
 import { combineReducers } from "redux";
+import {playerReducer} from "./player.reducer";
 import { teamReducer } from "./team.reducer";
 import { signInReducer } from "./sign-in.reducer";
+
 
 export interface ISignInState {
   credentials: {
@@ -10,7 +12,19 @@ export interface ISignInState {
   },
   errorMessage: string
 }
-
+export interface IPlayerState{
+  birth_date: any,
+  birth_place: any,
+  college: any, 
+  height: any,
+  jersey: any,
+  name: any,
+  partialRender: string,
+  position: any,     
+  rookie_year: any,
+  seasons: any, 
+  weight: any
+}
 export interface ITeamState {
   awayFumbles: any,
   awayName: any,
@@ -39,17 +53,20 @@ export interface ITeamState {
 }
 export interface IHomeState {
   divStandings: any,
-  gameWeek: any
+  gameWeek: any,
+  plays: any
 }
 
 export interface IState {
   home: IHomeState,
   team: ITeamState,
   signIn: ISignInState,
+  player: IPlayerState
 }
 
 export const state = combineReducers<IState>({
   home: homeReducer,
+  player: playerReducer,
   signIn: signInReducer,
   team: teamReducer
 })

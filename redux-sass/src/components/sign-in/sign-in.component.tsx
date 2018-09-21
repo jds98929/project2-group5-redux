@@ -70,7 +70,7 @@ class SignInComponent extends React.Component<IProps, {}> {
       <div>
         <form className="form-signin border border-primary" onSubmit={this.submit}>
         
-          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <h1 className="h3 mb-3 font-weight-normal" id="please-sign-in">Please sign in</h1>
 
           <label htmlFor="inputUsername" className="sr-only">Username</label>
           <input
@@ -98,7 +98,7 @@ class SignInComponent extends React.Component<IProps, {}> {
         <div className="row"> 
          
             <br />
-            <img src={logo2}className="rounded-circle" width="255" height="200"></img> 
+            <img src={logo2}className="rounded-circle" id="sign-in-picture" width="255" height="200"></img> 
           
         
         </div>

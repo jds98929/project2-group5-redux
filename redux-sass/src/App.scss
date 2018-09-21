@@ -32,9 +32,47 @@ body {
   margin: 0;
   padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  
+  background: url("./assets/football-stadium.jpg");
+  color: #bdbdbd;
+  background-size: cover;
 }
 
+#play-by-play-row{
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
+}
+#schedule-row{
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
+}
+#play-by-play-header{
+  width: 100%;
+  display: inline-table;
+  
+}
+#schedule{
+  height: 175px;
+}
+#gameweek-table-body{
+  overflow-y: scroll;
+  width: 100%;
+  height: 175px;
+  position: absolute;
+}
+#play-by-play{
+  height:300px;
+}
+#play-by-play-table-body{
+  overflow-y: scroll;
+  width: 100%;
+  height: 250px;
+  position: absolute;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
 
 
 #main-content-container {
@@ -45,19 +83,28 @@ body {
   
 }
 
-.bg-1 {
-  background: #2d2d30;
-  color: #bdbdbd;
-  height: 553px;
+// .bg-1 {
+//   background: url("./assets/football-stadium.jpg");
+//   color: #bdbdbd;
+//   background-size: auto;
+  
 
   
+// }
+
+#week-selector{
+  margin-top: 20px !important;
 }
 
-.rounded-circle{
+#select-division-column{
+  margin-top: 20px !important;
+}
+
+#sign-in-picture{
   margin-left: 25px !important;
 }
 
-.h3{
+#please-sign-in{
   margin-left: 15px !important;
 }
 
@@ -130,7 +177,42 @@ nav {
 .red {
   color: red;
 }
-
+#play-by-play-row{
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
+}
+#schedule-row{
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
+}
+#play-by-play-header{
+  width: 100%;
+  display: inline-table;
+  
+}
+#schedule{
+  height: 175px;
+}
+#gameweek-table-body{
+  overflow-y: scroll;
+  width: 100%;
+  height: 175px;
+  position: absolute;
+}
+#play-by-play{
+  height:300px;
+}
+#play-by-play-table-body{
+  overflow-y: scroll;
+  width: 100%;
+  height: 250px;
+  position: absolute;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
 
 
 // .App {
