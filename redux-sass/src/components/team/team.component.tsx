@@ -70,12 +70,12 @@ export class TeamComponent extends React.Component<IProps, any> {
             this.props.updateWeek(event, weekNum)}}> next </button>
         </div>
         <div>
-        {this.props.partialRender === 'schedule' ? 
+        {this.props.partialRender === 'schedule' ?  
         <ScheduleComponent 
           awayName = {this.props.awayName} awayPenalties = {this.props.awayPenalties} 
           awayPossessionTime={this.props.awayPossessionTime} awaySafeties={this.props.awaySafeties} 
           awayScore = {this.props.awayScore} date = {this.props.date} awayTotalYards={this.props.awayTotalYards}
-          awayTurnovers={this.props.awayTurnovers}
+          awayTurnovers={this.props.awayTurnovers} broadcast = {this.props.broadcast}
           homeName={this.props.homeName} homeScore = {this.props.homeScore} 
           homePenalties={this.props.homePenalties}
           homePossessionTime={this.props.homePossessionTime}

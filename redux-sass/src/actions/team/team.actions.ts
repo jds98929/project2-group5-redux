@@ -29,6 +29,7 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
       let homeTotalYardsTemp = '';
       let homeTurnoversTemp = '';
 
+
       if (respObj.gs.statistics) {
         awayFumblesTemp = respObj.gs.statistics.away.summary.fumbles;
         awayPenaltiesTemp = respObj.gs.statistics.away.summary.penalties;
@@ -49,6 +50,7 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
       dispatch({
         payload: {
           awayFumbles: awayFumblesTemp,
+          awayId: respObj.g.away.id,
           awayName: respObj.g.away.name,
           awayPenalties: awayPenaltiesTemp,
           awayPossessionTime: awayPossessionTimeTemp,
@@ -56,8 +58,10 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
           awayScore: awayScoreTemp,
           awayTotalYards: awayTotalYardsTemp,
           awayTurnovers: awayTurnoversTemp,  
+          broadcast: respObj.g.broadcast.network,
           date: respObj.g.scheduled,
           homeFumbles: homeFumblesTemp,
+          homeId: respObj.g.home.id,
           homeName: respObj.g.home.name,
           homePenalties: homePenaltiesTemp,
           homePossessionTime: homePossessionTimeTemp,
@@ -65,6 +69,7 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
           homeScore: homeScoreTemp,
           homeTotalYards: homeTotalYardsTemp,
           homeTurnovers: homeTurnoversTemp  
+          
         },
         type: teamTypes.VIEW_SCHEDULE,
       });
@@ -72,7 +77,9 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
     .catch((err: any) => {
       console.log(err);
     });
+
 }
+
 
 export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
   const getRoster: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/roster`);
