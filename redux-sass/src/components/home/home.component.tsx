@@ -1,26 +1,33 @@
 import { connect } from 'react-redux';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { LeagueScheduleComponent } from './league-schedule.component';
 import { IHomeState, IState } from '../../reducers';
-import { fetchWeekSchedule, fetchDivStandings } from '../../actions/home/home.actions';
+import {  fetchDivStandings, fetchGame, fetchWeekSchedule } from '../../actions/home/home.actions';
 import { LeagueStandingsComponent } from './league-standings.component';
+import { PlayByPlayComponent } from './play-by-play.component';
 
 interface IProps extends IHomeState {
     fetchDivStandings: (endPoint: string) => any,
-    fetchWeekSchedule: (weekNumber: number) => any,
+    fetchGame: (gameId: string) => any,
+    fetchWeekSchedule: (weekNumber: number) => any
 }
+
+// const saveID = (id: any) => {
+//     return id;
+// }
 
 export class HomeComponent extends React.Component<IProps, any> {
 
     public render() {
-        const { gameWeek, divStandings } = this.props
+        const { gameWeek, divStandings, plays } = this.props
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-8 h-50">
-
-                        <select className="custom-select custom-select-sm" id="week-selector" onChange={(event: any) => {
+                <div className="row" id="home-title">
+                    <h1 className="display-4 text-center col-12">Home Page</h1>
+                </div>
+                <div className="row" id="first-half">
+                    <div className="col-9">
+                        <select size={1} className="custom-select custom-select-sm" onChange={(event: any) => {
                             event.preventDefault();
                             this.props.fetchWeekSchedule(event.target.value);
                         }}>
@@ -43,9 +50,9 @@ export class HomeComponent extends React.Component<IProps, any> {
                             <option value={16}>Week 16</option>
                             <option value={17}>Week 17</option>
                         </select>
-                        <LeagueScheduleComponent gameWeek={gameWeek}></LeagueScheduleComponent>
+                        <LeagueScheduleComponent gameWeek={gameWeek} fetchGame={this.props.fetchGame}></LeagueScheduleComponent>
                     </div>
-                    <div className="col-4 h-50" id="select-division-column">
+                    <div className="col-3">
                         <select className="custom-select " onChange={(event: any) => {
                             event.preventDefault();
                             this.props.fetchDivStandings(event.target.value);
@@ -61,16 +68,13 @@ export class HomeComponent extends React.Component<IProps, any> {
                             <option value="NFC/NFC_SOUTH">NFC South</option>
                         </select>
                         <LeagueStandingsComponent divStandings={divStandings}></LeagueStandingsComponent>
-                        <div className="col-4">
-                            <div className="h-33">
-                                <h5>View Teams</h5>
-                                <p>Description </p>
-                                <Link to="/" className=""><button className="btn btn-secondary" role="button">View Table</button></Link>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
+                <div className="row">
+                    <div className="col-12">
+                        <PlayByPlayComponent plays={plays}></PlayByPlayComponent>
+                    </div>
+                </div>
             </div>
         );
     }
@@ -78,6 +82,7 @@ export class HomeComponent extends React.Component<IProps, any> {
 const mapStateToProps = (state: IState) => state.home;
 const mapDispatchToProps = {
     fetchDivStandings,
+    fetchGame,
     fetchWeekSchedule
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

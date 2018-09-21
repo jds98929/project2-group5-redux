@@ -1,6 +1,7 @@
 import * as React from "react";
 interface IProps {
-    gameWeek: any
+    gameWeek: any,
+    fetchGame: (gameId: string) => any
 }
 export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props) => {
     const { gameWeek } = props;
@@ -19,28 +20,31 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
         else {
             hour -= 12;
         }
+        if (hour < 0) {
+            hour += 12;
+            return `${month}/${day}/${year}  ${hour}${min} AM`;
+        }
         const timeString = `${month}/${day}/${year}  ${hour}${min} PM`
 
         return timeString;
     }
-    // const checkNull = (nullOrNot: any) => {
-    //     if (!nullOrNot){
-    //         return ` `;
-    //     } else {
-    //         return nullOrNot;
-    //     }
-    // }
+
     return (
-
-        <table className="table table-sm table-striped table-dark col " id="schedule">
-
+        <table className="table table-dark table-sm table-striped table-bordered table-condensed" id="schedule">
             <tbody id="gameweek-table-body">
                 {
                     gameWeek.map((game: any) => (
-                        <tr key={game.id}>
+                        <tr key={game.id} id="schedule-row">
                             <td>@{game.home.alias} vs. {game.away.alias}</td>
                             <td>{game.broadcast.network}</td>
                             <td>{setTime(game.scheduled)}</td>
+                            <td><button value={game.id} className="btn btn-info btn-sm" onClick={
+                                (event) => {
+                                    event.preventDefault();
+                                    console.log(game.id);
+                                    props.fetchGame(game.id);
+                                }
+                            }>Click for Game Feed</button></td>
                         </tr>
                     ))
                 }
