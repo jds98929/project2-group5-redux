@@ -16,7 +16,10 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <AppNav/>
+            <div className="bg-1">
             <div id="main-content-container">
+
+
               <Switch>
                 <Route path="/player" component={PlayerComponent}/>
                 <Route path="/team" component={TeamComponent} />
@@ -24,8 +27,11 @@ class App extends React.Component {
                 <Route path="/home" component={HomeComponent} />
                 <Route component={SignInComponent} />
               </Switch>
+             </div> 
             </div>
-          </div>
+
+            </div>
+          
         </BrowserRouter>
       </Provider>
     );

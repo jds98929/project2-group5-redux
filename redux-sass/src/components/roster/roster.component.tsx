@@ -5,9 +5,9 @@ interface IProps {
 }
 
 export const RosterComponent: React.StatelessComponent<IProps> = (props) => {
-    const {roster} = props
-    console.log(roster);  
+    const {roster} = props  
     return (
+      roster[0] !== 'This week\'s roster is not available yet' ?
       <table className="table table-striped table-dark col" id="roster-table">
       <tr>
         <th>Name</th>
@@ -23,8 +23,7 @@ export const RosterComponent: React.StatelessComponent<IProps> = (props) => {
 
      </tr>
       <tbody id="roster-table-body">
-        {
-          roster && roster.map((player: any) => (
+          {roster.map((player: any) => (
             <tr key={player.name}>
               <td><Link to={`/player/`} id={player.id} onClick ={(event)=>{localStorage.setItem('id',player.id)}}> {player.name}</Link></td>
              
@@ -42,5 +41,7 @@ export const RosterComponent: React.StatelessComponent<IProps> = (props) => {
         }
       </tbody>
     </table>
+    :
+    roster
     )
 }

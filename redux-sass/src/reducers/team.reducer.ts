@@ -3,6 +3,8 @@ import { teamTypes } from "../actions/team/team.actions";
 
 
 const initialState: ITeamState = {
+    alias: '',
+    awayFumbles: '',
     awayName: '',
     awayPenalties: '',
     awayPossessionTime: '', 
@@ -11,6 +13,7 @@ const initialState: ITeamState = {
     awayTotalYards: '', 
     awayTurnovers: '',  
     date: '',
+    homeFumbles: '',
     homeName: '',
     homePenalties: '',
     homePossessionTime: '', 
@@ -18,15 +21,33 @@ const initialState: ITeamState = {
     homeScore: '',
     homeTotalYards: '', 
     homeTurnovers: '',  
-    partialRender: '',
+    oldTeamName: '',
+    partialRender: 'schedule',
     roster: [],
+    teamName: '',
+    weekNum: 1
 }
 
 export const teamReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case teamTypes.UPDATE_RENDER:
+      return {
+        ...state,
+        partialRender: action.payload.partialRender
+      }
+
+    case teamTypes.UPDATE_TEAM:
+      return {
+        ...state,
+        alias: action.payload.alias,
+        oldTeamName: action.payload.oldTeamName,
+        teamName: action.payload.teamName
+      }
+
     case teamTypes.VIEW_SCHEDULE:
       return {
         ...state,
+        awayFumbles: action.payload.awayFumbles,
         awayName: action.payload.awayName,
         awayPenalties: action.payload.awayPenalties,
         awayPossessionTime: action.payload.awayPossessionTime, 
@@ -35,6 +56,7 @@ export const teamReducer = (state = initialState, action: any) => {
         awayTotalYards: action.payload.awayTotalYards, 
         awayTurnovers: action.payload.awayTurnovers,  
         date: action.payload.date,
+        homeFumbles: action.payload.homeFumbles,
         homeName: action.payload.homeName,
         homePenalties: action.payload.homePenalties,
         homePossessionTime: action.payload.homePossessionTime, 
@@ -42,14 +64,18 @@ export const teamReducer = (state = initialState, action: any) => {
         homeScore: action.payload.homeScore,
         homeTotalYards: action.payload.homeTotalYards, 
         homeTurnovers: action.payload.homeTurnovers,  
-        partialRender: action.payload.partialRender,
       }
 
     case teamTypes.VIEW_ROSTER:
       return {
         ...state,
-        partialRender: action.payload.partialRender,
         roster: action.payload.roster
+      }
+    
+    case teamTypes.UPDATE_WEEK:
+      return {
+        ...state,
+        weekNum: action.payload.weekNum
       }
   }
 

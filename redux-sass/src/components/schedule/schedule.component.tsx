@@ -46,15 +46,32 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
       <div>
       <table className="table table-striped table-dark col">
       <tbody id="movie-table-body">
-        <tr key="1">
+        <tr>
+          <td> Home  </td>
+          <td> Score </td>       
+          <td> Away </td>
+          <td> Date </td>
+          <td> Time </td>
+        </tr>
+        <tr>
           <td> {homeName && homeName} </td>
           <td> {homeScore && homeScore}-{awayScore && awayScore} </td>       
           <td> {awayName && awayName} </td>
-          <td> 
-            {date && date.substring(0,10)} 
-            {date && setTime(+date.substring(11,13))} 
-            {date && date.substring(13, 16)} PM
+          <td> {date && date.substring(0,10)} </td>
+          <td> {date && setTime(+date.substring(11,13))} {date && date.substring(13, 16)} PM </td>
+        </tr>
+        <tr>
+          <td> {homeName ? <img 
+          src={require("../../assets/" + homeName.split(" ")[homeName.split(" ").length-1].toLowerCase() + ".gif")}
+          height="40" width="40"/> : ''} 
           </td>
+          <td> </td>     
+          <td> {awayName ? <img 
+          src={require("../../assets/" + awayName.split(" ")[homeName.split(" ").length-1].toLowerCase() + ".gif")}
+          height="60"/> : ''} 
+          </td>
+          <td> </td>
+          <td> </td>
         </tr>
         </tbody>
       </table>

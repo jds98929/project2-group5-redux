@@ -4,6 +4,7 @@ import { ISignInState, IState } from '../../reducers';
 import * as signInActions from '../../actions/sign-in/sign-in.actions';
 import { connect } from 'react-redux';
 import { environment } from '../../environment';
+import logo2 from '../../assets/logo2.jpeg'
 
 interface IProps extends RouteComponentProps<{}>, ISignInState {
   updateError: (message: string) => any
@@ -60,33 +61,48 @@ class SignInComponent extends React.Component<IProps, {}> {
     const { errorMessage, credentials } = this.props;
 
     return (
-  
-      <form className="form-signin" onSubmit={this.submit}>
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+    //  <div className="row">
+    //   <div className="col-sm-4">
+    //     <p><strong>Name</strong></p><br />
+    //     <img src={logo1} className="rounded-circle" alt="Random Name"></img> 
+    //   </div>
+    // </div>
+      <div>
+        <form className="form-signin border border-primary" onSubmit={this.submit}>
+        
+          <h1 className="h3 mb-3 font-weight-normal" id="please-sign-in">Please sign in</h1>
 
-        <label htmlFor="inputUsername" className="sr-only">Username</label>
-        <input
-          onChange={this.usernameChange}
-          value={credentials.username}
-          type="text"
-          id="inputUsername"
-          className="form-control"
-          placeholder="Username"
-          required />
+          <label htmlFor="inputUsername" className="sr-only">Username</label>
+          <input
+            onChange={this.usernameChange}
+            value={credentials.username}
+            type="text"
+            id="inputUsername"
+            className="form-control"
+            placeholder="Username"
+            required />
 
-        <label htmlFor="inputPassword" className="sr-only">Password</label>
-        <input
-          onChange={this.passwordChange}
-          value={credentials.password}
-          type="password"
-          id="inputPassword"
-          className="form-control"
-          placeholder="Password"
-          required />
+          <label htmlFor="inputPassword" className="sr-only">Password</label>
+          <input
+            onChange={this.passwordChange}
+            value={credentials.password}
+            type="password"
+            id="inputPassword"
+            className="form-control"
+            placeholder="Password"
+            required />
 
-        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        {errorMessage && <p id="error-message">{errorMessage}</p>}
-      </form>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          {errorMessage && <p id="error-message">{errorMessage}</p>}
+        </form>
+        <div className="row"> 
+         
+            <br />
+            <img src={logo2}className="rounded-circle" id="sign-in-picture" width="255" height="200"></img> 
+          
+        
+        </div>
+      </div> 
     );
   }
 }
