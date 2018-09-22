@@ -84,9 +84,8 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                   else {
                     event.preventDefault();
                   }
-                }}
-                to="/home" className="unset-anchor nav-link">
-                  Home
+                }}to="/sign-in" className="unset-anchor nav-link">
+                  Sign In
                 </Link>
               </li>
               <li className="nav-item active">
@@ -97,12 +96,14 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                   else {
                     event.preventDefault();
                   }
-                }}to="/sign-in" className="unset-anchor nav-link">
-                  Sign In
+                }}
+                to="/home" className="unset-anchor nav-link">
+                  Home
                 </Link>
               </li>
               <li className="nav-item active dropdown">
               <a className="nav-link dropdown-toggle pointer" id="team-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite Teams</a>
+              {localStorage.getItem('user') ?
               <div className="dropdown-menu" aria-labelledby="team-dropdown">
                 <div className="dropdown-item"><Link onClick={(event:any) => {
                   if (localStorage.getItem('user')){
@@ -122,11 +123,13 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                       </div>
                       ))
                     }
-                    <button onClick={addTeams}>Add Teams</button> 
+                    <button className="btn btn-primary" onClick={addTeams}>Add Teams</button> 
                   </div>
                 </li>
                 </div>
               </div>
+              :
+              ''}
               </li>
               <li className="nav-item active">
                 <Link onClick={(event:any) => {

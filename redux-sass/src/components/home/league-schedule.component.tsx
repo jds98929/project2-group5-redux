@@ -6,6 +6,9 @@ interface IProps {
 export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props) => {
     const { gameWeek } = props;
 
+    gameWeek.forEach((game: any)=>{
+        console.log(game);
+    })
     const setTime = (date: any) => {
 
         const year = +date.substring(0, 4);

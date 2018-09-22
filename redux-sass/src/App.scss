@@ -34,8 +34,36 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   background: url("./assets/stadium.png");
   
-  color: #bdbdbd;
+  color: black;
   background-size: cover;
+}
+
+/* Home */
+
+#home-container {
+  margin-top: 20px !important;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+  padding-top: 20px !important;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+  padding-bottom: 20px !important;
+  background-color: #ffffff;
+  width: 70%;
+  opacity: 0.9;
+
+}
+
+#home-title-container {
+  margin: 0 150px;
+  background-color: #e5f5f391;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-title {
+  color: #0a1cc0;
 }
 
 #play-by-play-row{
@@ -178,16 +206,6 @@ nav {
   cursor: pointer;
 }
 
-/*****************************
-  Clicker
-*****************************/
-.blue {
-  color: blue;
-}
-
-.red {
-  color: red;
-}
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -246,19 +264,6 @@ nav {
   background: #555; 
 }
 
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
-
 /* Team Component */
 #team-container {
   margin: 5em;
@@ -274,10 +279,16 @@ nav {
   max-width: 15em;
 }
 
+
 .page-button {
   padding: 0;
   border: none;
   background: none;
+}
+
+.page-button:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
 }
 
 .select {
@@ -298,6 +309,48 @@ nav {
   padding: 30px 0;
   text-align: center;
 }
+
+/*Schedule*/
+#broadcast-text {
+  padding-top: 15px;
+  padding-right: 10px;
+  color: white;
+}
+.right-text {
+  padding-top: 17px;
+  padding-right: 10px;
+  color: rgb(58, 28, 226);
+}
+
+.card {
+  max-width: 30em;
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px;
+}
+
+.center-text {
+  padding-top: 30px;
+  padding-left: 200px;
+  font-size: smaller;
+}
+
+.card-body {
+  background-color: lightcyan;
+  color: black;
+}
+
+#game-statistics {
+  text-align: center;
+  padding-left: 250px;
+}
+
+.game-table {
+  color: black;
+  text-align: center;
+}
+
+
 
 // .App {
 //   text-align: center;
