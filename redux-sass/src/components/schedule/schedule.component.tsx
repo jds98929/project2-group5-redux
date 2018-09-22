@@ -8,6 +8,7 @@ interface IProps {
   awayScore: any,
   awayTotalYards: any, 
   awayTurnovers: any,  
+  broadcast: any,
   date: any,
   homeName: any,
   homePenalties: any,
@@ -26,6 +27,7 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
       awayScore,
       awayTotalYards, 
       awayTurnovers,  
+      broadcast,
       date,
       homeName,
       homePenalties,
@@ -39,76 +41,76 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
       if (hour > 12) {
         hour -= 12;
       }
+      if (hour === 0){
+        hour = 12;
+      }
       return hour.toString();
     }
 
     return (
       <div>
-      <table className="table table-striped table-dark col">
-      <tbody id="movie-table-body">
-        <tr>
-          <td> Home  </td>
-          <td> Score </td>       
-          <td> Away </td>
-          <td> Date </td>
-          <td> Time </td>
-        </tr>
-        <tr>
-          <td> {homeName && homeName} </td>
-          <td> {homeScore && homeScore}-{awayScore && awayScore} </td>       
-          <td> {awayName && awayName} </td>
-          <td> {date && date.substring(0,10)} </td>
-          <td> {date && setTime(+date.substring(11,13))} {date && date.substring(13, 16)} PM </td>
-        </tr>
-        <tr>
-          <td> {homeName ? <img 
-          src={require("../../assets/" + homeName.split(" ")[homeName.split(" ").length-1].toLowerCase() + ".gif")}
-          height="40" width="40"/> : ''} 
-          </td>
-          <td> </td>     
-          <td> {awayName ? <img 
-          src={require("../../assets/" + awayName.split(" ")[homeName.split(" ").length-1].toLowerCase() + ".gif")}
-          height="60"/> : ''} 
-          </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-        </tbody>
-      </table>
-      <table className="table table-striped table-dark col">
-        <tr> 
-          <td></td>
-          <td>{homeName}</td>
-          <td>{awayName}</td>
-        </tr>
+        {homeName ?
+        <div>
+        <div className="card text-white bg-primary mb-3" >
+          <div className="card-header">{date && date.substring(0,10)} <span id="broadcast-text" className="float-right">{broadcast && broadcast}</span><br/> {date && setTime(+date.substring(11,13))} {date && date.substring(13, 16)} PM </div>
+            <div className="card-body">
+            <p className="card-text">{homeScore ? 'Final' : ''}</p>
+            <span className="card-text center-text">(home)</span>
+            <h5 className="card-title">{homeName ? <img 
+                  src={require("../../assets/" + homeName.split(" ")[homeName.split(" ").length-1].toLowerCase() + ".gif")}
+                  height="60"/> : ''} {homeName && homeName} <span className="right-text float-right">{homeScore && homeScore}</span></h5>
+            <span className="card-text center-text">(away)</span>
+            <h5 className="card-title">{awayName ? <img 
+                  src={require("../../assets/" + awayName.split(" ")[awayName.split(" ").length-1].toLowerCase() + ".gif")}
+                  height="60"/> : ''} {awayName && awayName} <span className="right-text float-right">{awayScore && awayScore}</span></h5>
+            
+          </div>
+        </div> 
+        <div>{homeScore ?
+        <table className="table game-table">
+        <thead className="thead-dark">
+          <tr className="text-center">
+            <h4 id="game-statistics" className="h4 font-weight-normal float-center">Game Statistics</h4>
+          </tr>
+          <tr> 
+            <td></td>
+            <td>{homeName}</td>
+            <td>{awayName}</td>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-          <td> Penalties </td>
-          <td> {homePenalties && homePenalties} </td>
-          <td> {awayPenalties && awayPenalties} </td>
-        </tr>
-        <tr>
-          <td> Possession Time </td>
-          <td> {homePossessionTime && homePossessionTime} </td>
-          <td> {awayPossessionTime && awayPossessionTime} </td>
-        </tr>
-        <tr>
-          <td> Safeties </td>
-          <td> {homeSafeties && homeSafeties} </td>
-          <td> {awaySafeties && awaySafeties} </td>
-        </tr>
-        <tr>
-          <td> Total Yards </td>
-          <td> {homeTotalYards && homeTotalYards} </td>
-          <td> {awayTotalYards && awayTotalYards} </td>
-        </tr>
-        <tr>
-          <td> Turnovers </td>
-          <td> {homeTurnovers && homeTurnovers} </td>
-          <td> {awayTurnovers && awayTurnovers} </td>
-        </tr>
-       </tbody>
-      </table>
+          <tr>
+            <td> Penalties </td>
+            <td> {homePenalties && homePenalties} </td>
+            <td> {awayPenalties && awayPenalties} </td>
+          </tr>
+          <tr>
+            <td> Possession Time </td>
+            <td> {homePossessionTime && homePossessionTime} </td>
+            <td> {awayPossessionTime && awayPossessionTime} </td>
+          </tr>
+          <tr>
+            <td> Safeties </td>
+            <td> {homeSafeties && homeSafeties} </td>
+            <td> {awaySafeties && awaySafeties} </td>
+          </tr>
+          <tr>
+            <td> Total Yards </td>
+            <td> {homeTotalYards && homeTotalYards} </td>
+            <td> {awayTotalYards && awayTotalYards} </td>
+          </tr>
+          <tr>
+            <td> Turnovers </td>
+            <td> {homeTurnovers && homeTurnovers} </td>
+            <td> {awayTurnovers && awayTurnovers} </td>
+          </tr>
+         </tbody>
+        </table>
+        :
+        '' }
+      </div>
+      </div>
+      : ''}
       </div>
     )
 }

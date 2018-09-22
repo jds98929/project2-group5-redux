@@ -32,9 +32,38 @@ body {
   margin: 0;
   padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  background: url("./assets/football-stadium.jpg");
-  color: #bdbdbd;
+  background: url("./assets/stadium.png");
+  
+  color: black;
   background-size: cover;
+}
+
+/* Home */
+
+#home-container {
+  margin-top: 20px !important;
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+  margin-bottom: 20px !important;
+  padding-top: 20px !important;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+  padding-bottom: 20px !important;
+  background-color: #ffffff;
+  width: 70%;
+  opacity: 0.9;
+
+}
+
+#home-title-container {
+  margin: 0 120px;
+  background-color: #e5f5f391;
+  display: flex;
+  flex-direction: column;
+}
+
+#home-title {
+  color: #0a1cc0;
 }
 
 #play-by-play-row{
@@ -52,8 +81,8 @@ body {
   display: inline-table;
   
 }
-#schedule{
-  height: 175px;
+#first-half{
+  height: 250px;
 }
 #gameweek-table-body{
   overflow-y: scroll;
@@ -100,12 +129,25 @@ body {
   margin-top: 20px !important;
 }
 
+/* Sign In */
+
+
 #sign-in-picture{
   margin-left: 25px !important;
 }
 
 #please-sign-in{
   margin-left: 15px !important;
+}
+
+#sign-in-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: 0.9;
 }
 
 
@@ -167,16 +209,6 @@ nav {
   cursor: pointer;
 }
 
-/*****************************
-  Clicker
-*****************************/
-.blue {
-  color: blue;
-}
-
-.red {
-  color: red;
-}
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -192,9 +224,7 @@ nav {
   display: inline-table;
   
 }
-#schedule{
-  height: 175px;
-}
+
 #gameweek-table-body{
   overflow-y: scroll;
   width: 100%;
@@ -210,9 +240,119 @@ nav {
   height: 250px;
   position: absolute;
 }
-::-webkit-scrollbar {
+
+#add-team-dropdown {
+  height: 200px; 
+  width: 300px; 
+  overflow: scroll; 
+}
+
+/* width */
+#add-team-dropdown::-webkit-scrollbar {
   width: 10px;
 }
+
+/* Track */
+#add-team-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+#add-team-dropdown::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+#add-team-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Team Component */
+#team-container {
+  margin: 5em;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+.form-control {
+  max-width: 15em;
+}
+
+
+.page-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.page-button:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.select {
+  color: black;
+  text-align: center;
+}
+
+.team-name {
+  color: black;
+}
+
+#week-text {
+  color: black;
+  font-size: medium;
+}
+
+.week-container {
+  padding: 30px 0;
+  text-align: center;
+}
+
+/*Schedule*/
+#broadcast-text {
+  padding-top: 15px;
+  padding-right: 10px;
+  color: white;
+}
+.right-text {
+  padding-top: 17px;
+  padding-right: 10px;
+  color: rgb(58, 28, 226);
+}
+
+.card {
+  max-width: 30em;
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px;
+}
+
+.center-text {
+  padding-top: 30px;
+  padding-left: 200px;
+  font-size: smaller;
+}
+
+.card-body {
+  background-color: lightcyan;
+  color: black;
+}
+
+#game-statistics {
+  text-align: center;
+  padding-left: 250px;
+}
+
+.game-table {
+  color: black;
+  text-align: center;
+}
+
 
 
 // .App {

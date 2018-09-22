@@ -6,6 +6,9 @@ interface IProps {
 export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props) => {
     const { gameWeek } = props;
 
+    gameWeek.forEach((game: any)=>{
+        console.log(game);
+    })
     const setTime = (date: any) => {
 
         const year = +date.substring(0, 4);
@@ -30,7 +33,7 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
     }
 
     return (
-        <table className="table table-dark table-sm table-striped table-bordered table-condensed" id="schedule">
+        <table className="table table-dark table-sm table-striped table-condensed" id="schedule">
             <tbody id="gameweek-table-body">
                 {
                     gameWeek.map((game: any) => (

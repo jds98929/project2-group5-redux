@@ -34,6 +34,7 @@ export interface ITeamState {
   awayScore: any,
   awayTotalYards: any, 
   awayTurnovers: any,  
+  broadcast: any,
   date: any,
   homeFumbles: any,
   homeName: any,
