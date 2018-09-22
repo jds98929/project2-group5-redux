@@ -16,7 +16,7 @@ export const PlayByPlayComponent: React.StatelessComponent<IProps> = (props) => 
             <tbody id="play-by-play-table-body">
                 {
                     plays.map((play: any) => (
-                        <tr key={play} id="play-by-play-row">
+                        <tr id="play-by-play-row">
                             <td>{play}</td>
                         </tr>
                     ))
