@@ -33,7 +33,7 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
     }
 
     return (
-        <table className="table table-dark table-sm table-striped table-condensed" id="schedule">
+        <table className="league-table table table-dark table-sm table-striped table-condensed" id="schedule">
             <tbody id="gameweek-table-body">
                 {
                     gameWeek.map((game: any) => (

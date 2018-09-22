@@ -66,6 +66,10 @@ body {
   color: #0a1cc0;
 }
 
+.league-table {
+  color: black;
+}
+
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -311,6 +315,33 @@ nav {
 .week-container {
   padding: 30px 0;
   text-align: center;
+}
+
+
+
+#roster-dropdown {
+  height: 300px;  
+  overflow-y: scroll; 
+}
+
+/* width */
+#roster-dropdown::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#roster-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+#roster-dropdown::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+#roster-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 /*Schedule*/

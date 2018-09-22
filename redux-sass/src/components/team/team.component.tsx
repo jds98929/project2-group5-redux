@@ -93,7 +93,7 @@ export class TeamComponent extends React.Component<IProps, any> {
           homeSafeties={this.props.homeSafeties}
           homeTotalYards={this.props.homeTotalYards}
           homeTurnovers={this.props.homeTurnovers}  /> 
-          : <RosterComponent roster={this.props.roster}/>
+          : <div id="roster-dropdown"> <RosterComponent roster={this.props.roster}/> </div>
         }
         </div>
       </div>

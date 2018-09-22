@@ -8,34 +8,34 @@ export const RosterComponent: React.StatelessComponent<IProps> = (props) => {
     const {roster} = props  
     return (
       roster[0] !== 'This week\'s roster is not available yet' ?
-      <table className="table table-striped table-dark col" id="roster-table">
+      <table className="table table-striped table-dark col">
       <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Position</th>
-        <th>Number</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Birthdate</th>
-        <th>Rookie Year</th>
-        <th>School</th>
-        <th>Status</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Position</th>
+        <th scope="col">Number</th>
+        <th scope="col">Height</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Birthdate</th>
+        <th scope="col">Rookie Year</th>
+        <th scope="col">School</th>
+        <th scope="col">Status</th>
 
      </tr>
-      <tbody id="roster-table-body">
+      <tbody>
           {roster.map((player: any) => (
             <tr key={player.name}>
               <td><Link to={`/player/`} id={player.id} onClick ={(event)=>{localStorage.setItem('id',player.id)}}> {player.name}</Link></td>
              
-              <td><Link to="/player">{player.age}</Link></td>
-              <td><Link to="/player">{player.position}</Link></td>
-              <td><Link to="/player">{player.jersey}</Link></td>
-              <td><Link to="/player">{player.height}</Link></td>
-              <td><Link to="/player">{player.weight}</Link></td>
-              <td><Link to="/player">{player.birth_date}</Link></td>
-              <td><Link to="/player">{player.rookie_year}</Link></td>
-              <td><Link to="/player">{player.college}</Link></td>
-              <td><Link to="/player">{player.status}</Link></td>
+              <td>{player.age}</td>
+              <td>{player.position}</td>
+              <td>{player.jersey}</td>
+              <td>{player.height}</td>
+              <td>{player.weight}</td>
+              <td>{player.birth_date}</td>
+              <td>{player.rookie_year}</td>
+              <td>{player.college}</td>
+              <td>{player.status}</td>
             </tr>
           ))
         }

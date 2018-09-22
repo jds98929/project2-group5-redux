@@ -10,7 +10,6 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       } else {
         newTeams.splice(newTeams.indexOf(event.target.value), 1);
       }
-      alert(newTeams);
     }
     const addTeams = (event: any) => {
       const userString: any = localStorage.getItem('user');
@@ -35,7 +34,6 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           throw new Error('Failed to update teams');
         })
         .then(resp => {
-          alert(user.teams);
           localStorage.setItem('user', JSON.stringify(resp));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
         })
         .catch(err => {
