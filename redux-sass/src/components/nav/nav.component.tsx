@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
+import color_logo_transparent from '../../assets/color_logo_transparent.jpg'
 
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
@@ -62,7 +63,11 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
     return (
       <div>
         <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
-          <div className="navbar-header c-pointer shift-left" />
+          <div className="navbar-header c-pointer shift-left">
+          <Link to="/home" className="unset-anchor">
+            <img className="img-adjust-position rev-logo" src={color_logo_transparent} alt="revature" />
+          </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
