@@ -41,17 +41,21 @@ export class TeamComponent extends React.Component<IProps, any> {
     const teamName = this.props.teamName;
     const weekNum = this.props.weekNum;
     return (
-      <div>
-        <select onChange={(event) => {
+      <div id="team-container">
+         <br/>
+         <br/>
+        <select className="form-control" onChange={(event) => {
           event.preventDefault();
           this.props.updateTeamInfo(this.props.teamName, event)}}>
-          <option value="none"> Select a team </option>
+          <option className="select" value="none"> Select a team </option>
           {user && user.teams.map((team: any) => (
-            <option value={team.name}> {team.name} </option>
+            <option className="select" value={team.name}> {team.name} </option>
           ))
           }
         </select>
-        <h3>{teamName}</h3>
+        <br/>
+        <h3 className="team-name h3 mb-3 font-weight-normal">{teamName}</h3>
+        <div className="btn-group">
         <button id="schedule" className="btn btn-primary" 
         onClick={(event) => {
           event.preventDefault();
@@ -64,17 +68,17 @@ export class TeamComponent extends React.Component<IProps, any> {
               this.props.updateRender(event)}}> 
           Roster
         </button>
-        <br/>
-        <div>
-          {weekNum !== 1 ? <button value="back" 
+        </div>
+        <div className="week-container">
+          {weekNum !== 1 ? <button className="page-button" value="back" 
           onClick={(event: any) => {
             event.preventDefault();
-            this.props.updateWeek(event, weekNum)}}> prev </button> : ''
+            this.props.updateWeek(event, weekNum)}}> &lt;&lt; </button> : ''
           }
-          Week {weekNum}
-          <button value="forward" onClick={(event: any) => {
+          <span id="week-text"> {"Week" + weekNum} </span>
+          <button className="page-button" value="forward" onClick={(event: any) => {
             event.preventDefault();
-            this.props.updateWeek(event, weekNum)}}> next </button>
+            this.props.updateWeek(event, weekNum)}}> &gt;&gt; </button>
         </div>
         <div>
         {this.props.partialRender === 'schedule' ?  

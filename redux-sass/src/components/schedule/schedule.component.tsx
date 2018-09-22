@@ -38,6 +38,7 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
       homeTurnovers  } = props;
       
     const setTime = (hour: number) => {
+      alert(hour)
       if (hour > 12) {
         hour -= 12;
       }
@@ -60,7 +61,8 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
                   height="60"/> : ''} {awayName && awayName}           {awayScore && awayScore}<br/><small>(away)</small></h5>
           </div>
         </div>
-        <table className="table table-striped table-dark col">
+        <table>
+            <td><h4>Game Statistics</h4></td>
           <tr> 
             <td></td>
             <td>{homeName}</td>
