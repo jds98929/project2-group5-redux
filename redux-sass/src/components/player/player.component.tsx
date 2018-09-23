@@ -14,7 +14,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
         const {birth_date, birth_place,college, height, jersey, name, position,rookie_year,seasons,weight } = this.props;
         console.log(seasons);
         return (
-        <div>
+        <div>   
          <div className="card mb-3">
             <img className="card-img-top" src="../../assets/defaultavatar.jpg" alt="Card image cap"/>
             <div className="card-body">

@@ -287,6 +287,21 @@ nav {
   opacity: 0.9;
 }
 
+#player-container {
+  margin: 3em;
+  padding: 50px 120px 50px 120px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+/*
+#player-table-container {
+  margin
+}
+*/
 .form-control {
   max-width: 15em;
 }
@@ -323,7 +338,7 @@ nav {
 }
 
 #player-season-scrollbar {
-  height: 300px;  
+  height: 500px;  
   overflow-y: scroll; 
 }
 
