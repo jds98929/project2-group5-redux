@@ -13,7 +13,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
         const {birth_date, birth_place,college, height, jersey, name, position,rookie_year,seasons,weight } = this.props;
         console.log(seasons);
         return (
-        <div>
+        <div id="player-container">
         <table className="table table-striped table-dark col" id="roster-table">
             <tr>
                 <th>Name</th>
