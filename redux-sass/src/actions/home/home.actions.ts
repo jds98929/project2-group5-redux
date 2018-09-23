@@ -1,3 +1,5 @@
+import { environment } from '../../environment';
+
 export const homeTypes = {
     VIEW_PLAYS: 'VIEW_PLAYS',
     VIEW_STANDINGS: 'VIEW_STANDINGS',
@@ -6,7 +8,7 @@ export const homeTypes = {
 
 
 export const fetchWeekSchedule = (weekNumber: number) => (dispatch: any) => {
-    const getSchedule: any = fetch(`http://localhost:3001/season/week/${weekNumber}`);
+    const getSchedule: any = fetch(environment.context + `season/week/${weekNumber}`);
     getSchedule
         .then((resp: any) => {
             return resp.json();
@@ -31,7 +33,7 @@ export const fetchWeekSchedule = (weekNumber: number) => (dispatch: any) => {
 }
 export const fetchDivStandings = (endPoint: string) => (dispatch: any) => {
     console.log(endPoint)
-    const getStandings: any = fetch(`http://localhost:3001/season/standings/${endPoint}`);
+    const getStandings: any = fetch(environment.context + `season/standings/${endPoint}`);
     getStandings
         .then((resp: any) => {
             return resp.json();
@@ -55,7 +57,7 @@ export const fetchDivStandings = (endPoint: string) => (dispatch: any) => {
         })
 }
 export const fetchGame = (gameId: string) => (dispatch: any) => {
-    const getGame = fetch(`http://localhost:3001/season/${gameId}/plays`);
+    const getGame = fetch(environment.context + `season/${gameId}/plays`);
     getGame
         .then((resp: any) => {
             return resp.json();

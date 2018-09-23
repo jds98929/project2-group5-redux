@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
-import color_logo_transparent from '../../assets/color_logo_transparent.jpg'
+import color_logo_transparent from '../../assets/color_logo_transparent.jpg';
+import { environment } from '../../environment';
 
 
 export const AppNav: React.StatelessComponent<any> = (props) => {
@@ -16,7 +17,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       const userString: any = localStorage.getItem('user');
       if (userString) {
         const user = JSON.parse(userString);
-        fetch(`http://localhost:3001/users/${user.id}/updateTeams`, {
+        fetch(environment.context + `users/${user.id}/updateTeams`, {
           body: JSON.stringify(newTeams),
           headers: {
             'Content-Type': 'application/json',

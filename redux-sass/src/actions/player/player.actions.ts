@@ -1,9 +1,11 @@
+import { environment } from '../../environment';
+
 export const playerTypes = {
     VIEW_PLAYER: 'VIEW_PLAYER',
   }
   
   export const fetchPlayer = (id:any)=>(dispatch: any) => {
-    const getPlayer: any = fetch(`http://localhost:3001/season/player/${id}`);
+    const getPlayer: any = fetch(environment.context + `season/player/${id}`);
     getPlayer
       .then((resp: any) => {
         return resp.json();

@@ -1,3 +1,4 @@
+import { environment } from '../../environment';
 
 export const teamTypes = {
   UPDATE_RENDER: 'UPDATE_RENDER',
@@ -8,7 +9,7 @@ export const teamTypes = {
 }
 
 export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
-  const getSchedule: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/schedule`);
+  const getSchedule: any = fetch(environment.context + `season/${alias}/${weekNum}/schedule`);
   getSchedule
     .then((resp: any) => {
       return resp.json();
@@ -82,7 +83,7 @@ export const fetchSchedule = (alias:any, weekNum:any) => (dispatch: any) => {
 
 
 export const fetchRoster = (alias:any,weekNum:any)=>(dispatch: any) => {
-  const getRoster: any = fetch(`http://localhost:3001/season/${alias}/${weekNum}/roster`);
+  const getRoster: any = fetch(environment.context + `season/${alias}/${weekNum}/roster`);
   getRoster
     .then((resp: any) => {
       return resp.json();
