@@ -48,11 +48,13 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       let exclude: boolean = false;
       const userString: any = localStorage.getItem('user');
       const user = JSON.parse(userString);
-      user.teams.forEach((team: any)=> { 
-        if (team.name === teamName) {
-          exclude = true; 
-        }
-      });
+      if (user){
+        user.teams.forEach((team: any)=> { 
+          if (team.name === teamName) {
+            exclude = true; 
+          }
+        });
+      }
       if (!exclude) {
         return teamName;
       }
