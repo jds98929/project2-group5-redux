@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IState, ITeamState, ISignInState, IPlayerState} from '../../reducers';
 import { connect } from 'react-redux';
 import { fetchPlayer } from '../../actions/player/player.actions';
-
+import { defaultAvatar } from "../../assets/defaultavatar.jpg";
 interface IProps extends ITeamState, ISignInState, IPlayerState {
     fetchPlayer: (id: any) => any,
   }
@@ -14,9 +14,9 @@ export class PlayerComponent extends React.Component<IProps, any> {
         const {birth_date, birth_place,college, height, jersey, name, position,rookie_year,seasons,weight } = this.props;
         console.log(seasons);
         return (
-        <div>   
+        <div id = "player-container">   
          <div className="card mb-3">
-            <img className="card-img-top" src="../../assets/defaultavatar.jpg" alt="Card image cap"/>
+            <img className="card-img-left" src={defaultAvatar} alt="Card image cap"/>
             <div className="card-body">
                  <h5 className="card-title">{name}, #{jersey} {position}</h5>
                     <p className="card-text">Height: {height} Weight: {weight}</p>
@@ -25,6 +25,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
                     <p className="card-text"> Rookie Year: {rookie_year}</p>
             </div>
         </div> 
+        <div id = "player-season-scrollbar">
          {seasons.map((season: any) => (
              <div id = {season.id}>
              <h2>Season {season.year} ({season.name})</h2>
@@ -278,6 +279,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
                 }
              </div>
          ))}
+         </div>
          </div>
         )
     }
