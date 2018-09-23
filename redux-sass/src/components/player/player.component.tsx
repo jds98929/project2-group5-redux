@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IState, ITeamState, ISignInState, IPlayerState} from '../../reducers';
 import { connect } from 'react-redux';
 import { fetchPlayer } from '../../actions/player/player.actions';
+import defaultAvatar  from "../../assets/defaultavatar.jpg";
 interface IProps extends ITeamState, ISignInState, IPlayerState {
     fetchPlayer: (id: any) => any,
   }
@@ -13,43 +14,30 @@ export class PlayerComponent extends React.Component<IProps, any> {
         const {birth_date, birth_place,college, height, jersey, name, position,rookie_year,seasons,weight } = this.props;
         console.log(seasons);
         return (
-        <div id="player-container">
-
-        <table className="table table-striped table-dark col" id="roster-table">
-            <tr>
-                <th>Name</th>
-                <th>Birth Date</th>
-                <th>Birth Place</th>
-                <th>Jersey</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>College</th>
-                <th>Rookie Year</th>
-                <th>Position</th>
-            </tr>
-            <tbody id="roster-table-body">
-                {
-                    <tr key={name}>
-                    <td >{name}</td>
-                    <td>{birth_date}</td>
-                    <td>{birth_place}</td>
-                    <td>{jersey}</td>
-                    <td>{height}</td>
-                    <td>{weight}</td>
-                    <td>{college}</td>
-                    <td>{rookie_year}</td>
-                    <td>{position}</td>
-                    </tr>
-                }
-            </tbody>
-         </table>
-         <div id="player-season-scrollbar">
+        <div id = "player-container">   
+        <div className="card">
+        <div className="row no-gutters">
+            <div className="col-auto">
+                <img src={defaultAvatar} className="img-fluid" alt=""/>
+            </div>
+            <div className="col">
+                <div className="card-block px-2">
+                    <h4 className="card-title">{name}, #{jersey} {position}</h4>
+                    <p className="card-text">Height: {height} Weight: {weight}</p>
+                    <p className="card-text"> Born: {birth_date} {birth_place}</p>
+                    <p className="card-text"> College: {college}</p>
+                    <p className="card-text"> Rookie Year: {rookie_year}</p>                  
+                </div>
+            </div>
+        </div>
+        </div>
+        <div id = "player-season-scrollbar">
          {seasons.map((season: any) => (
-             <div>
+             <div id = {season.id}>
              <h2>Season {season.year} ({season.name})</h2>
                 {
                     season.teams.map((team:any) => (
-                      <div>
+                      <div id = {team.name}>
                           <h3>{team.name}, {team.market}</h3>
                             <table className="table table-striped table-dark col" id="player-profile-table">
                                 <tr>
