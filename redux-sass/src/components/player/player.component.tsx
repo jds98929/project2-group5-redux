@@ -14,7 +14,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
         console.log(seasons);
         return (
         <div id="player-container">
-        <div id="player-table-container">
+
         <table className="table table-striped table-dark col" id="roster-table">
             <tr>
                 <th>Name</th>
@@ -297,7 +297,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                 }
              </div>
          ))}
-         </div>
          </div>
          </div>
         )
