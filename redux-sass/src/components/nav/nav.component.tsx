@@ -117,7 +117,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                     event.preventDefault();
                   }
                 }}to="/team" className="unset-anchor nav-link active">My Teams</Link></div>               
-                <div className="dropdown-submenu">
+                <div className="dropdown-submenu nav-link dropdown-toggle pointer">
                   <li className="nav-item active dropdown">
                   <a className="nav-link dropdown-toggle pointer" id="add-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Teams</a>
                   <div id="add-team-dropdown" className="dropdown-item" aria-labelledby="add-team-dropdown">
