@@ -253,7 +253,7 @@ nav {
 #add-team-dropdown {
   height: 200px; 
   width: 300px; 
-  overflow: scroll; 
+  overflow-y: scroll; 
 }
 
 /* width */
@@ -279,6 +279,9 @@ nav {
 /* Team Component */
 #team-container {
   margin: 5em;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   width: 70%;

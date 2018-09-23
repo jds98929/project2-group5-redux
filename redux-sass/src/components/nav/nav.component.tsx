@@ -48,7 +48,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       let exclude: boolean = false;
       const userString: any = localStorage.getItem('user');
       const user = JSON.parse(userString);
-      if (user){
+      if (user && user.teams){
         user.teams.forEach((team: any)=> { 
           if (team.name === teamName) {
             exclude = true; 
@@ -119,7 +119,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                     event.preventDefault();
                   }
                 }}to="/team" className="unset-anchor nav-link active">My Teams</Link></div>               
-                <div className="dropdown-submenu nav-link dropdown-toggle pointer">
+                <ul className="dropdown-submenu nav-link dropdown-toggle pointer">
                   <li className="nav-item active dropdown">
                   <a className="nav-link dropdown-toggle pointer" id="add-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Teams</a>
                   <div id="add-team-dropdown" className="dropdown-item" aria-labelledby="add-team-dropdown">
@@ -132,7 +132,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                     <button className="btn btn-primary" onClick={addTeams}>Add Teams</button> 
                   </div>
                 </li>
-                </div>
+                </ul>
               </div>
               :
               ''}
