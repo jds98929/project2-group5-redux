@@ -33,7 +33,7 @@ export class HomeComponent extends React.Component<IProps, any> {
                 <div className="row" id="home-title-container">
                     <h2 id="home-title" className="h2 text-center">Welcome to Team Space</h2>
                     <p className="text-center">Below, you can view the standings and schedules for all NFL teams by week or by division.</p>
-                    <p className="text-center">Our play-by-play feed will display the broadcasts of ongoing games.</p>
+                    <p className="text-center">Our play-by-play feed displays the broadcasts of past and ongoing games.</p>
                     <Link className="text-center" to="/team">Click here to view up-to-date game info for your favorite teams</Link>
                     <br/>
                 </div>
