@@ -29,6 +29,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           if (resp.status === 401) {
             alert('Invalid Credentials');
           } else if (resp.status === 200) {
+            alert("")
             return resp.json();
           } else {
             alert('Failed to update teams');
