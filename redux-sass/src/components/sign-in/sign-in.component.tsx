@@ -13,7 +13,7 @@ interface IProps extends RouteComponentProps<{}>, ISignInState {
   submit: (credentials: any) => any
 }
 
-class SignInComponent extends React.Component<IProps, {}> {
+export class SignInComponent extends React.Component<IProps, {}> {
 
   constructor(props: any) {
     super(props);
@@ -68,7 +68,7 @@ class SignInComponent extends React.Component<IProps, {}> {
     //   </div>
     // </div>
       <div id="sign-in-container">
-        <form className="form-signin border border-primary" onSubmit={this.submit}>
+        <form className="form-signin border border-primary" id="loginForm" onSubmit={this.submit}>
         
           <h1 className="h3 mb-3 font-weight-normal" id="please-sign-in">Please sign in</h1>
 

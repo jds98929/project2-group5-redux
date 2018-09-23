@@ -1,7 +1,7 @@
 import { signInTypes } from "../actions/sign-in/sign-in.types";
 import { ISignInState } from ".";
 
-const initialState: ISignInState = {
+export const initialState: ISignInState = {
   credentials : {
     password: '',
     username: ''
