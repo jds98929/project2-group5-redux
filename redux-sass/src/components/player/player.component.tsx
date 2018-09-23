@@ -42,7 +42,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
                 }
             </tbody>
          </table>
-
+         <div id="player-season-scrollbar">
          {seasons.map((season: any) => (
              <div>
              <h2>Season {season.year} ({season.name})</h2>
@@ -296,6 +296,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
                 }
              </div>
          ))}
+         </div>
          </div>
         )
     }

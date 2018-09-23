@@ -213,10 +213,11 @@ nav {
   box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
 }
 
+/*
 #examples-dropdown {
   cursor: pointer;
 }
-
+*/
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -321,6 +322,30 @@ nav {
   text-align: center;
 }
 
+#player-season-scrollbar {
+  height: 300px;  
+  overflow-y: scroll; 
+}
+
+/* width */
+#player-season-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#player-season-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+#player-season-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+#player-season-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 
 #roster-dropdown {
