@@ -15,16 +15,22 @@ export class PlayerComponent extends React.Component<IProps, any> {
         console.log(seasons);
         return (
         <div id = "player-container">   
-         <div className="card mb-3">
-            <img className="card-img-top" src={defaultAvatar} alt="Card image cap"/>
-            <div className="card-body">
-                 <h5 className="card-title">{name}, #{jersey} {position}</h5>
+        <div className="card">
+        <div className="row no-gutters">
+            <div className="col-auto">
+                <img src={defaultAvatar} className="img-fluid" alt=""/>
+            </div>
+            <div className="col">
+                <div className="card-block px-2">
+                    <h4 className="card-title">{name}, #{jersey} {position}</h4>
                     <p className="card-text">Height: {height} Weight: {weight}</p>
                     <p className="card-text"> Born: {birth_date} {birth_place}</p>
                     <p className="card-text"> College: {college}</p>
-                    <p className="card-text"> Rookie Year: {rookie_year}</p>
+                    <p className="card-text"> Rookie Year: {rookie_year}</p>                  
+                </div>
             </div>
-        </div> 
+        </div>
+        </div>
         <div id = "player-season-scrollbar">
          {seasons.map((season: any) => (
              <div id = {season.id}>
