@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IState, ITeamState, ISignInState, IPlayerState} from '../../reducers';
 import { connect } from 'react-redux';
 import { fetchPlayer } from '../../actions/player/player.actions';
-import { defaultAvatar } from "../../assets/defaultavatar.jpg";
+import defaultAvatar  from "../../assets/defaultavatar.jpg";
 interface IProps extends ITeamState, ISignInState, IPlayerState {
     fetchPlayer: (id: any) => any,
   }
@@ -16,7 +16,7 @@ export class PlayerComponent extends React.Component<IProps, any> {
         return (
         <div id = "player-container">   
          <div className="card mb-3">
-            <img className="card-img-left" src={defaultAvatar} alt="Card image cap"/>
+            <img className="card-img-top" src={defaultAvatar} alt="Card image cap"/>
             <div className="card-body">
                  <h5 className="card-title">{name}, #{jersey} {position}</h5>
                     <p className="card-text">Height: {height} Weight: {weight}</p>
