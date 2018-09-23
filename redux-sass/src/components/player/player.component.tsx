@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IState, ITeamState, ISignInState, IPlayerState} from '../../reducers';
 import { connect } from 'react-redux';
 import { fetchPlayer } from '../../actions/player/player.actions';
+
 interface IProps extends ITeamState, ISignInState, IPlayerState {
     fetchPlayer: (id: any) => any,
   }
@@ -14,41 +15,22 @@ export class PlayerComponent extends React.Component<IProps, any> {
         console.log(seasons);
         return (
         <div>
-        <table className="table table-striped table-dark col" id="roster-table">
-            <tr>
-                <th>Name</th>
-                <th>Birth Date</th>
-                <th>Birth Place</th>
-                <th>Jersey</th>
-                <th>Height</th>
-                <th>Weight</th>
-                <th>College</th>
-                <th>Rookie Year</th>
-                <th>Position</th>
-            </tr>
-            <tbody id="roster-table-body">
-                {
-                    <tr key={name}>
-                    <td >{name}</td>
-                    <td>{birth_date}</td>
-                    <td>{birth_place}</td>
-                    <td>{jersey}</td>
-                    <td>{height}</td>
-                    <td>{weight}</td>
-                    <td>{college}</td>
-                    <td>{rookie_year}</td>
-                    <td>{position}</td>
-                    </tr>
-                }
-            </tbody>
-         </table>
-         <div id="player-season-scrollbar">
+         <div className="card mb-3">
+            <img className="card-img-top" src="../../assets/defaultavatar.jpg" alt="Card image cap"/>
+            <div className="card-body">
+                 <h5 className="card-title">{name}, #{jersey} {position}</h5>
+                    <p className="card-text">Height: {height} Weight: {weight}</p>
+                    <p className="card-text"> Born: {birth_date} {birth_place}</p>
+                    <p className="card-text"> College: {college}</p>
+                    <p className="card-text"> Rookie Year: {rookie_year}</p>
+            </div>
+        </div> 
          {seasons.map((season: any) => (
-             <div>
+             <div id = {season.id}>
              <h2>Season {season.year} ({season.name})</h2>
                 {
                     season.teams.map((team:any) => (
-                      <div>
+                      <div id = {team.name}>
                           <h3>{team.name}, {team.market}</h3>
                             <table className="table table-striped table-dark col" id="player-profile-table">
                                 <tr>
@@ -296,7 +278,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                 }
              </div>
          ))}
-         </div>
          </div>
         )
     }
