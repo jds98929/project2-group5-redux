@@ -224,7 +224,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                                     <th>Longest Touchdown</th>
                                     <th>Tackle for a Loss</th>
                                     <th>Broken Tackles</th>
-                                    <th>Longest Pass</th>
                                     <th>Yards After Contact</th>
                                 </tr>
                                 <tbody>
