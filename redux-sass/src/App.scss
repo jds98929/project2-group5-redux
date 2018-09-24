@@ -77,6 +77,7 @@ body {
 .league-table {
   color: black;
 }
+
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -160,32 +161,7 @@ body {
   background-color: #ffffff;
   opacity: 0.9;
 }
-#newUserLink{
-  color:black;
-}
-/* Register */
 
-#register-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  align-items: center;
-  background-color: #ffffff;
-  opacity: 0.9;
-}
-#registerFirstName{
-  margin-bottom: 20px !important;
-}
-#registerLastName{
-  margin-bottom: 20px !important;
-}
-#registerPassword{
-  margin-bottom: 20px !important;
-}
-#registerUsername{
-  margin-bottom: 20px !important;
-}
 
 button.rev-btn {
   background-color: $revature-orange;
@@ -215,6 +191,10 @@ button.rev-btn {
   margin-right: 2em;
 }
 
+#team-dropdown:hover {
+  cursor: pointer;
+}
+
 .margin-nav {
   margin-right: 2em
 }
@@ -241,10 +221,11 @@ nav {
   box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
 }
 
+/*
 #examples-dropdown {
   cursor: pointer;
 }
-
+*/
 #play-by-play-row{
   width: 100%;
   display: inline-table;
@@ -280,7 +261,7 @@ nav {
 #add-team-dropdown {
   height: 200px; 
   width: 300px; 
-  overflow: scroll; 
+  overflow-y: scroll; 
 }
 
 /* width */
@@ -306,6 +287,9 @@ nav {
 /* Team Component */
 #team-container {
   margin: 5em;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px; 
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -314,6 +298,21 @@ nav {
   opacity: 0.9;
 }
 
+#player-container {
+  margin: 3em;
+  padding: 50px 25px 50px 25px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+/*
+#player-table-container {
+  margin
+}
+*/
 .form-control {
   max-width: 15em;
 }
@@ -349,6 +348,32 @@ nav {
   text-align: center;
 }
 
+#player-season-scrollbar {
+  height: 500px;  
+  max-width: 100%;
+  min-width: 100%;
+  overflow-y: scroll; 
+}
+
+/* width */
+#player-season-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#player-season-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+#player-season-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+#player-season-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 
 #roster-dropdown {

@@ -68,7 +68,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                                     <th>Interceptions</th>
                                     <th>QB Rating</th>
                                     <th>Total Yards</th>
-                                    <th>Average Pocket Time</th>
                                 </tr>
                                 <tbody>
                                     <tr>
@@ -84,7 +83,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                                         <td>{team.statistics.passing.interceptions}</td>
                                         <td>{team.statistics.passing.rating}</td>
                                         <td>{team.statistics.passing.net_yards}</td>
-                                        <td>{team.statistics.passing.avg_pocket_time}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -165,46 +163,6 @@ export class PlayerComponent extends React.Component<IProps, any> {
                                         <td>{team.statistics.extra_points.attempts}</td>
                                         <td>{team.statistics.extra_points.made}</td>
                                         <td>{team.statistics.extra_points.blocked}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                            ):(<div></div>)
-                            }
-                            {team.statistics.passing ?(
-                            <div>
-                            <h2>Passing</h2>
-                            <table className="table table-striped table-dark col">
-                                <tr>
-                                    <th>Attempts</th>
-                                    <th>Completions</th>
-                                    <th>Completion Percentage</th>
-                                    <th>Yards</th>
-                                    <th>Average Yards</th>
-                                    <th>Sacks</th>
-                                    <th>Sack Yards</th>
-                                    <th>Touchdowns</th>
-                                    <th>Longest Pass</th>
-                                    <th>Interceptions</th>
-                                    <th>QB Rating</th>
-                                    <th>Total Yards</th>
-                                    <th>Average Pocket Time</th>
-                                </tr>
-                                <tbody>
-                                    <tr>
-                                        <td>{team.statistics.passing.attempts}</td>
-                                        <td>{team.statistics.passing.completions}</td>
-                                        <td>{team.statistics.passing.cmp_pct}</td>
-                                        <td>{team.statistics.passing.yards}</td>
-                                        <td>{team.statistics.passing.avg_yards}</td>
-                                        <td>{team.statistics.passing.sacks}</td>
-                                        <td>{team.statistics.passing.sack_yards}</td>
-                                        <td>{team.statistics.passing.touchdowns}</td>
-                                        <td>{team.statistics.passing.longest}</td>
-                                        <td>{team.statistics.passing.interceptions}</td>
-                                        <td>{team.statistics.passing.rating}</td>
-                                        <td>{team.statistics.passing.net_yards}</td>
-                                        <td>{team.statistics.passing.avg_pocket_time}</td>
                                     </tr>
                                 </tbody>
                             </table>
