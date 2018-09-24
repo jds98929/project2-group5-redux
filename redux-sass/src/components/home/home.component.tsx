@@ -7,7 +7,7 @@ import { LeagueStandingsComponent } from './league-standings.component';
 import { PlayByPlayComponent } from './play-by-play.component';
 import {Link} from 'react-router-dom';
 import { RouteComponentProps } from '../../../node_modules/@types/react-router';
-import football from '../../assets/football.png';
+import football from '../../assets/football.jpg';
 
 interface IProps extends IHomeState, RouteComponentProps<any>{
     fetchDivStandings: (endPoint: string) => any,
