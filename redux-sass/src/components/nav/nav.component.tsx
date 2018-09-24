@@ -8,6 +8,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
   let newTeams: string[] = [];
   const refresh = () => {
     window.location.reload();
+    localStorage.removeItem('user');
   }
   const updateAddList = (event: any) => {
     if (event.target.checked) {
