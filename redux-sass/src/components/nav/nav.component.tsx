@@ -32,7 +32,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           if (resp.status === 401) {
             alert('Invalid Credentials');
           } else if (resp.status === 200) {
-            alert("")
+            alert("New teams successfully added")
             return resp.json();
           } else {
             alert('Failed to update teams');
@@ -41,6 +41,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
         })
         .then(resp => {
           localStorage.setItem('user', JSON.stringify(resp));
+          window.location.reload();
         })
         .catch(err => {
           console.log(err);
