@@ -28,6 +28,7 @@ export class HomeComponent extends React.Component<IProps, any> {
     }
 
     public render() {
+        window.location.reload();
         const { gameWeek, divStandings, plays } = this.props
         return (
             <div id="home-container">
