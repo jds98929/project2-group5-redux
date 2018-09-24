@@ -8,6 +8,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
   let newTeams: string[] = [];
   const refresh = () => {
     localStorage.removeItem('user');
+    props.history.push("/sign-in");
     window.location.reload();
   }
   const updateAddList = (event: any) => {
