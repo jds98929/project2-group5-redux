@@ -50,7 +50,6 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
         })
       newTeams = [];
     }
-
   }
   const excludeUserTeams = (teamName: string) => {
     let exclude: boolean = false;
@@ -62,7 +61,6 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           exclude = true;
         }
       });
-
     }
     if (!exclude) {
       return teamName;
