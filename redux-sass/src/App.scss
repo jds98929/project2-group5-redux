@@ -342,6 +342,8 @@ nav {
 
 #player-season-scrollbar {
   height: 500px;  
+  max-width: 100%;
+  min-width: 100%;
   overflow-y: scroll; 
 }
 
