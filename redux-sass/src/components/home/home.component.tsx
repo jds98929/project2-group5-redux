@@ -32,7 +32,7 @@ export class HomeComponent extends React.Component<IProps, any> {
         return (
             <div id="home-container">
                 <div className="row" id="home-title-container">
-                    <img src={football}/>
+                    <div id="home-logo"><img src={football}/></div>
                     <p className="text-center">Below, you can view the standings and schedules for all NFL teams by week or by division.</p>
                     <p className="text-center">Our play-by-play feed displays the broadcasts of past and ongoing games.</p>
                     <Link className="text-center" to="/team">Click here to view up-to-date game info for your favorite teams</Link>
