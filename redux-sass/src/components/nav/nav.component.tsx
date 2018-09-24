@@ -7,8 +7,8 @@ import { environment } from '../../environment';
 export const AppNav: React.StatelessComponent<any> = (props) => {
   let newTeams: string[] = [];
   const refresh = () => {
-    window.location.reload();
     localStorage.removeItem('user');
+    window.location.reload();
   }
   const updateAddList = (event: any) => {
     if (event.target.checked) {
