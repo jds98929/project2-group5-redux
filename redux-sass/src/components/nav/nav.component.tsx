@@ -47,7 +47,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
         })
       newTeams = [];
     }
-<<<<<<< HEAD
+
   }
   const excludeUserTeams = (teamName: string) => {
     let exclude: boolean = false;
@@ -59,23 +59,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           exclude = true;
         }
       });
-=======
-    const excludeUserTeams = (teamName: string) => {
-      let exclude: boolean = false;
-      const userString: any = localStorage.getItem('user');
-      const user = JSON.parse(userString);
-      if (user && user.teams){
-        user.teams.forEach((team: any)=> { 
-          if (team && team.name && (team.name === teamName)) {
-            exclude = true; 
-          }
-        });
-      }
-      if (!exclude) {
-        return teamName;
-      }
-      return;
->>>>>>> cb910b4844ce90c260cd28aa1f75f09e07b51f72
+
     }
     if (!exclude) {
       return teamName;
