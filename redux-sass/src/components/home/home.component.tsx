@@ -22,13 +22,13 @@ interface IProps extends IHomeState, RouteComponentProps<any>{
 export class HomeComponent extends React.Component<IProps, any> {
 
     public componentDidMount(){
+        window.location.reload();
         if (!localStorage.getItem('user')){
           this.props.history.push('/sign-in')
         }
     }
 
     public render() {
-        window.location.reload();
         const { gameWeek, divStandings, plays } = this.props
         return (
             <div id="home-container">
