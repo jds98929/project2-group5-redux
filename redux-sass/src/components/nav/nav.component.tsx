@@ -51,7 +51,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
       const user = JSON.parse(userString);
       if (user && user.teams){
         user.teams.forEach((team: any)=> { 
-          if (team.name === teamName) {
+          if (team.name && (team.name === teamName)) {
             exclude = true; 
           }
         });
