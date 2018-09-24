@@ -70,6 +70,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
   const nflTeams: string[] = ['Cardinals', 'Falcons', 'Ravens', 'Bills', 'Panthers', 'Bears', 'Bengals', 'Browns', 'Cowboys', 'Broncos', 'Lions', 'Packers', 'Texans', 'Colts', 'Jaguars', 'Chiefs', 'Dolphins', 'Vikings', 'Patriots', 'Saints', 'Giants', 'Jets', 'Raiders', 'Eagles', 'Steelers', 'Rams', 'Chargers', '49ers', 'Seahawks', 'Buccaneers', 'Titans', 'Redskins']
   return (
     <div>
+      {localStorage.getItem('user') ?
       <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-light bg-light display-front nav-pad">
         <div className="navbar-header c-pointer shift-left">
           <Link to="/home" className="unset-anchor">
@@ -153,6 +154,7 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
           </ul>
         </div>
       </nav>
+      : ''}
     </div>
   );
 }
