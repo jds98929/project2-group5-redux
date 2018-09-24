@@ -37,6 +37,7 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
             <tbody id="gameweek-table-body">
                 {
                     gameWeek.map((game: any) => (
+                        game &&
                         <tr key={game.id} id="schedule-row">
                             <td>@{game.home.alias} vs. {game.away.alias}</td>
                             <td>{game.broadcast.network}</td>
@@ -49,6 +50,7 @@ export const LeagueScheduleComponent: React.StatelessComponent<IProps> = (props)
                                 }
                             }>Click for Game Feed</button></td>
                         </tr>
+                        
                     ))
                 }
             </tbody>
