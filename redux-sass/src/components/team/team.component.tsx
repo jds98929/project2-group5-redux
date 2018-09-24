@@ -48,7 +48,7 @@ export class TeamComponent extends React.Component<IProps, any> {
           event.preventDefault();
           this.props.updateTeamInfo(this.props.teamName, event)}}>
           <option className="select" value="none"> Select a team </option>
-          {user && user.teams.map((team: any) => (
+          {user && user.teams && user.teams.map((team: any) => (
             <option className="select" value={team.name}> {team.name} </option>
           ))
           }
