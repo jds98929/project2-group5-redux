@@ -7,6 +7,7 @@ import { LeagueStandingsComponent } from './league-standings.component';
 import { PlayByPlayComponent } from './play-by-play.component';
 import {Link} from 'react-router-dom';
 import { RouteComponentProps } from '../../../node_modules/@types/react-router';
+import football from '../../assets/football.png';
 
 interface IProps extends IHomeState, RouteComponentProps<any>{
     fetchDivStandings: (endPoint: string) => any,
@@ -31,7 +32,7 @@ export class HomeComponent extends React.Component<IProps, any> {
         return (
             <div id="home-container">
                 <div className="row" id="home-title-container">
-                    <h2 id="home-title" className="h2 text-center">Welcome to Team Space</h2>
+                    <img id="home-logo" src={football}/>
                     <p className="text-center">Below, you can view the standings and schedules for all NFL teams by week or by division.</p>
                     <p className="text-center">Our play-by-play feed displays the broadcasts of past and ongoing games.</p>
                     <Link className="text-center" to="/team">Click here to view up-to-date game info for your favorite teams</Link>

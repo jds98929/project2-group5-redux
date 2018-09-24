@@ -60,10 +60,18 @@ body {
   background-color: #e5f5f391;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #home-title {
   color: #0a1cc0;
+}
+
+#home-logo {
+  margin-right: auto;
+  margin-left: auto;
+  width: 65%;
+  height: auto;
 }
 
 .league-table {
