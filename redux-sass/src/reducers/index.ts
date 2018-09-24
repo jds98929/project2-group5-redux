@@ -1,8 +1,10 @@
 import { homeReducer } from "./home.reducer";
 import { combineReducers } from "redux";
-import {playerReducer} from "./player.reducer";
+import { playerReducer } from "./player.reducer";
 import { teamReducer } from "./team.reducer";
 import { signInReducer } from "./sign-in.reducer";
+import { registerReducer } from "./register.reducer";
+
 
 
 export interface ISignInState {
@@ -12,38 +14,38 @@ export interface ISignInState {
   },
   errorMessage: string
 }
-export interface IPlayerState{
+export interface IPlayerState {
   birth_date: any,
   birth_place: any,
-  college: any, 
+  college: any,
   height: any,
   jersey: any,
   name: any,
   partialRender: string,
-  position: any,     
+  position: any,
   rookie_year: any,
-  seasons: any, 
+  seasons: any,
   weight: any
 }
 export interface ITeamState {
   awayFumbles: any,
   awayName: any,
   awayPenalties: any,
-  awayPossessionTime: any, 
+  awayPossessionTime: any,
   awaySafeties: any,
   awayScore: any,
-  awayTotalYards: any, 
-  awayTurnovers: any,  
+  awayTotalYards: any,
+  awayTurnovers: any,
   broadcast: any,
   date: any,
   homeFumbles: any,
   homeName: any,
   homePenalties: any,
-  homePossessionTime: any, 
+  homePossessionTime: any,
   homeSafeties: any,
   homeScore: any,
-  homeTotalYards: any, 
-  homeTurnovers: any,  
+  homeTotalYards: any,
+  homeTurnovers: any,
   oldTeamName: any,
   partialRender: string,
   roster: any,
@@ -56,10 +58,19 @@ export interface IHomeState {
   gameWeek: any,
   plays: any
 }
-
+export interface IRegisterState {
+  userInfo: {
+    firstName: string,
+    lastName: string,
+    username: string,
+    password: string
+  },
+  errorMessage: string
+}
 export interface IState {
   home: IHomeState,
   team: ITeamState,
+  register: IRegisterState,
   signIn: ISignInState,
   player: IPlayerState
 }
@@ -67,6 +78,7 @@ export interface IState {
 export const state = combineReducers<IState>({
   home: homeReducer,
   player: playerReducer,
+  register: registerReducer,
   signIn: signInReducer,
   team: teamReducer
 })
