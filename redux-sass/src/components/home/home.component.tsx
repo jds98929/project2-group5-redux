@@ -21,8 +21,11 @@ interface IProps extends IHomeState, RouteComponentProps<any>{
 
 export class HomeComponent extends React.Component<IProps, any> {
 
-    public componentDidMount(){
+    public componentWillMount(){
         window.location.reload();
+    }
+
+    public componentDidMount(){
         if (!localStorage.getItem('user')){
           this.props.history.push('/sign-in')
         }
