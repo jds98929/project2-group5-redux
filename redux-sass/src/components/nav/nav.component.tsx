@@ -98,18 +98,6 @@ export const AppNav: React.StatelessComponent<any> = (props) => {
                 else {
                   event.preventDefault();
                 }
-              }} to="/sign-in" className="unset-anchor nav-link">
-                Sign In
-                </Link>
-            </li>
-            <li className="nav-item active">
-              <Link onClick={(event: any) => {
-                if (localStorage.getItem('user')) {
-                  return;
-                }
-                else {
-                  event.preventDefault();
-                }
               }}
                 to="/home" className="unset-anchor nav-link">
                 Home
