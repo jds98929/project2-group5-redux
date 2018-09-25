@@ -67,7 +67,7 @@ export const ScheduleComponent: React.StatelessComponent<IProps> = (props) =>{
           </div>
         </div> 
         <div>{homeScore ?
-        <table className="table game-table">
+        <table className="table table-striped table-dark game-table">
         <thead className="thead-dark">
           <tr className="text-center">
             <h4 id="game-statistics" className="h4 font-weight-normal float-center">Game Statistics</h4>
